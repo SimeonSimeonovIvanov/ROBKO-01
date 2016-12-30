@@ -1,0 +1,49 @@
+// ****************************************************
+// *** Printer Driver for HP Laserjet/Deskjet (b/w) ***
+// ****************************************************
+//
+// Description : S = General Settings
+//               I = Initialization
+//               G = Graphic Mode Settings
+//               R = Print Resolutions
+//               P = Printer Settings for Graphic Mode
+//
+// All parameters (excl. Sxx, Rxx) must be written in Hexadecimal
+// The text may not include the character ':'
+//
+#S00#  "Printer connected (0=Off/1=On)"         : 1
+#S01#  "Printer Baudrate"                       : 9600
+#S02#  "Print Speed (0= 1 line/s  >0= n char/s) : 200
+#S03#  "Print Multiple line (0=No 1=Yes)"       : 0
+#S04#  "Charakters per line"                    : 80
+#S05#  "Text column width in print form"        : 39
+#S06#  "Number column width in print form"      : 17
+#S07#  "Unit column width im print form"        : 21
+#S08#  "Printer Timeout [ms]"                   : 5000
+
+#I00#  "Send BEFORE printing"                   : 1B 28 30 4E
+#I01#  "Send AFTER  printing"                   : 
+#I02#  "Printer Init"                           : 1B 26 6C 31 4C
+#I03#  "Printer Reset"                          : 1B 45
+#I04#  "Page Init Graphic mode"                 : 1B 26 6C 32 36 41 1B 26 6C 30 4F 1B 26 6C 34 45 1B 26 61 35 4C
+#I05#  "Form Feed"                              : 1B 26 6C 30 48
+#I06#  "Line Feed"                              : 0A
+#I07#  "Carriage Return"                        : 0D
+#I08#  "Line Space text mode printing"          : 1B 26 6C 36 44
+#I09#  "Line Space graphic text printing"       : 1B 26 6C 30 43
+#I10#  "Line Space graphic image printing"      : 1B 26 6C 30 43     
+#I11#  "Page Init Text Mode"                    : 1B 26 6C 32 36 41 1B 26 6C 30 4F 1B 26 6C 34 45 1B 26 61 35 4C
+
+#G00#  "Graphic End"                            : 1B 2A 72 43
+#G01#  "Graphic Init (150DPI,1024 Pixel)"       : 1B 2A 74 31 35 30 52 1B 2A 72 31 41 1B 2A 62 31 32 38 57
+#G02#  "Graphic Init (100DPI, 640 Pixel)"       : 1B 2A 74 31 30 30 52 1B 2A 72 31 41 1B 2A 62 38 30 57
+#G03#  "Graphic Init ( 75DPI, 320 Pixel)"       : 1B 2A 74 37 35 52 1B 2A 72 31 41 1B 2A 62 34 30 57
+
+#R01#  "Print Resolution (DPI, Pixel) of #G01#" : 150 1024
+#R02#  "Print Resolution (DPI, Pixel) of #G02#" : 100 640
+#R03#  "Print Resolution (DPI, Pixel) of #G03#" : 75 320
+
+#P00#  "Send Data in horizontal lines (1=Yes)"  : 1
+#P01#  "Data bits per pixel (1..8)"             : 1
+#P02#  "Color index printed black"              : 00 09 0A 0B 0C 0D 0E
+#P03#  "Graphic Mode supported (1=Yes)"         : 1

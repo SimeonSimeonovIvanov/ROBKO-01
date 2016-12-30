@@ -1,0 +1,302 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Bulgarian resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_BGR)
+#ifdef _WIN32
+LANGUAGE LANG_BULGARIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  22, 17, 154, 66
+STYLE DS_MODALFRAME | WS_CAPTION | WS_SYSMENU
+CAPTION "About ROBKO 01"
+FONT 8, "System"
+BEGIN
+    LTEXT           "ROBKO 01 v.0.0.0",IDC_STATIC,30,5,60,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2007-13",IDC_STATIC,30,15,75,8
+    DEFPUSHBUTTON   "OK",IDOK,115,10,30,10,WS_GROUP
+    LTEXT           "e-mail: simeon_s._ivanov@abv.bg",IDC_STATIC,30,49,120,
+                    11
+    LTEXT           "By Simeon S. Ivanov",IDC_STATIC,30,30,69,8
+    ICON            IDI_IDE,IDI_IDE,5,5,20,20
+END
+
+IDD_TCP_SETINGS DIALOG DISCARDABLE  0, 0, 112, 91
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "TCP Setings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,10,70,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,60,70,40,14
+    CONTROL         "IPAddress1",IDC_IPADDRESS,"SysIPAddress32",WS_TABSTOP,5,
+                    14,100,15
+    EDITTEXT        IDC_EDIT_TCP_PORT,5,45,99,15,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "IP Address:",IDC_STATIC,5,5,37,8
+    LTEXT           "Port:",IDC_STATIC,5,35,16,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_TCP_SETINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 105
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 84
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU_MAIN MENU DISCARDABLE 
+BEGIN
+    POPUP "&Connection"
+    BEGIN
+        MENUITEM "&Setings",                    IDM_CONNECTION_SETINGS
+        , GRAYED
+        MENUITEM "&Disconnect",                 IDM_CONNECTION_DISCONNECT
+        , GRAYED
+        POPUP "&Connect To"
+        BEGIN
+            MENUITEM "COM1",                        IDM_CONNECTION_COMSELECT_COM1
+
+            MENUITEM "COM2",                        IDM_CONNECTION_COMSELECT_COM2
+
+            MENUITEM "COM3",                        IDM_CONNECTION_COMSELECT_COM3
+
+            MENUITEM "COM4",                        IDM_CONNECTION_COMSELECT_COM4
+
+            MENUITEM "COM5",                        IDM_CONNECTION_COMSELECT_COM5
+
+            MENUITEM "COM6",                        IDM_CONNECTION_COMSELECT_COM6
+
+            MENUITEM "COM7",                        IDM_CONNECTION_COMSELECT_COM7
+
+            MENUITEM "COM8",                        IDM_CONNECTION_COMSELECT_COM8
+
+            MENUITEM "TCP/IP",                      IDM_CONNECTION_TCP_IP
+        END
+    END
+    POPUP "ROBKO 01"
+    BEGIN
+        MENUITEM "Set Zero Position",           ID_ROBKO01_SET_ZERO_POSITION
+        MENUITEM "Save Pos To EEPROM",          ID_ROBKO01_SAVE_POS_TO_EEPROM
+
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "About...",                    ID_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_IDE                 ICON    DISCARDABLE     "CHIP.ico"
+#endif    // Bulgarian resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_MAIN DIALOGEX 0, 150, 389, 221
+STYLE WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "ROBKO 01 - ModBUS Control Center"
+MENU IDR_MENU_MAIN
+FONT 12, "Arial Unicode MS"
+BEGIN
+    GROUPBOX        "Motor 1",IDC_STATIC,5,70,60,55
+    EDITTEXT        IDC_EDIT_MOTOR1,10,80,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN1,"msctls_updown32",UDS_ARROWKEYS,50,80,
+                    10,13
+    PUSHBUTTON      "Run",IDC_BUTTON_RUN_MOTOR1,10,110,50,10
+    GROUPBOX        "Motor 2",IDC_STATIC,70,70,60,55
+    EDITTEXT        IDC_EDIT_MOTOR2,75,80,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN2,"msctls_updown32",UDS_ARROWKEYS,115,80,
+                    10,12
+    PUSHBUTTON      "Run",IDC_BUTTON_RUN_MOTOR2,75,110,50,10
+    GROUPBOX        "Motor 3",IDC_STATIC,135,70,60,55
+    EDITTEXT        IDC_EDIT_MOTOR3,140,80,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN3,"msctls_updown32",UDS_ARROWKEYS,180,80,
+                    10,12
+    PUSHBUTTON      "Run",IDC_BUTTON_RUN_MOTOR3,140,110,50,10
+    PUSHBUTTON      "Run All",IDC_BUTTON_RUN_ALL,75,190,50,10
+    PUSHBUTTON      "Forward",IDC_BUTTON_MOTOR1_DIRECTION,10,95,50,10
+    PUSHBUTTON      "Forward",IDC_BUTTON_MOTOR2_DIRECTION,75,95,50,10
+    PUSHBUTTON      "Forward",IDC_BUTTON_MOTOR3_DIRECTION,140,95,50,10
+    GROUPBOX        "Motor 4",IDC_STATIC,5,130,60,55
+    EDITTEXT        IDC_EDIT_MOTOR4,10,140,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN4,"msctls_updown32",UDS_ARROWKEYS,50,140,
+                    10,12
+    PUSHBUTTON      "Run",IDC_BUTTON_RUN_MOTOR4,10,170,50,10
+    GROUPBOX        "Motor 5",IDC_STATIC,70,130,60,55
+    EDITTEXT        IDC_EDIT_MOTOR5,75,140,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN5,"msctls_updown32",UDS_ARROWKEYS,115,
+                    140,10,12
+    PUSHBUTTON      "Run",IDC_BUTTON_RUN_MOTOR5,75,170,50,10
+    GROUPBOX        "Motor 6",IDC_STATIC,135,130,60,55
+    EDITTEXT        IDC_EDIT_MOTOR6,140,140,40,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN6,"msctls_updown32",UDS_ARROWKEYS,180,
+                    140,10,12
+    PUSHBUTTON      "Run",IDC_BUTTON_RUN_MOTOR6,140,170,50,10
+    PUSHBUTTON      "Forward",IDC_BUTTON_MOTOR4_DIRECTION,10,155,50,10
+    PUSHBUTTON      "Forward",IDC_BUTTON_MOTOR5_DIRECTION,75,155,50,10
+    PUSHBUTTON      "Forward",IDC_BUTTON_MOTOR6_DIRECTION,140,155,50,10
+    CTEXT           "Static",IDC_STATIC_POWER,5,205,380,15,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "Set",IDC_BUTTON_SET_FK_SET,105,50,40,10
+    EDITTEXT        IDC_EDIT_X,25,15,35,12,ES_AUTOHSCROLL
+    CTEXT           "X:",IDC_STATIC,10,15,15,12,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    CTEXT           "Y:",IDC_STATIC,75,15,15,12,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    CTEXT           "Z:",IDC_STATIC,140,15,15,12,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_Y,90,15,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_Z,155,15,35,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_R_GRIPER,90,35,35,12,ES_AUTOHSCROLL
+    CTEXT           "R:",IDC_STATIC,75,35,15,12,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_EDIT_P_GRIPER,25,35,35,12,ES_AUTOHSCROLL
+    CTEXT           "P:",IDC_STATIC,10,35,15,12,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    GROUPBOX        "Inverse Kinematics",IDC_STATIC,5,5,190,60
+    EDITTEXT        IDC_EDIT_GRIPER,155,35,35,12,ES_AUTOHSCROLL
+    CTEXT           "G:",IDC_STATIC,140,35,15,12,SS_CENTERIMAGE,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "Run",IDC_BUTTON_SET_FK_GET,150,50,40,10
+    GROUPBOX        "Forward Kinematics",IDC_STATIC,205,5,180,60
+    CTEXT           "X:",IDC_STATIC,210,15,15,12,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Static",IDC_STATIC_FK_X,225,15,35,12,SS_CENTERIMAGE | 
+                    WS_BORDER
+    CTEXT           "Y:",IDC_STATIC,270,15,15,12,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Static",IDC_STATIC_FK_Y,285,15,35,12,SS_CENTERIMAGE | 
+                    WS_BORDER
+    CTEXT           "Z:",IDC_STATIC,330,15,15,12,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Static",IDC_STATIC_FK_Z,345,15,35,12,SS_CENTERIMAGE | 
+                    WS_BORDER
+    PUSHBUTTON      "G01 (PC)",IDC_BUTTON_SET_IK_G01,10,50,40,10
+    CTEXT           "P:",IDC_STATIC,210,35,15,12,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Static",IDC_STATIC_FK_P,225,35,35,12,SS_CENTERIMAGE | 
+                    WS_BORDER
+    CTEXT           "R:",IDC_STATIC,270,35,15,12,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Static",IDC_STATIC_FK_R,285,35,35,12,SS_CENTERIMAGE | 
+                    WS_BORDER
+    CTEXT           "G:",IDC_STATIC,330,35,15,12,SS_CENTERIMAGE | WS_BORDER
+    CTEXT           "Static",IDC_STATIC_FK_G,345,35,35,12,SS_CENTERIMAGE | 
+                    WS_BORDER
+    PUSHBUTTON      "EMS",IDC_BUTTON_EMS,270,190,50,10
+    PUSHBUTTON      "G01",IDC_BUTTON_SET_IK_G01_L,55,50,40,10
+    EDITTEXT        IDC_EDIT_G_CODE,210,80,170,85,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_OEMCONVERT | 
+                    ES_WANTRETURN | WS_VSCROLL | WS_HSCROLL
+    PUSHBUTTON      "Run G Code",IDC_BUTTON_RUN_G_CODE,210,170,50,10
+    GROUPBOX        "Edit G Code:",IDC_STATIC,205,70,180,115
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_MAIN, DIALOG
+    BEGIN
+        RIGHTMARGIN, 385
+        BOTTOMMARGIN, 220
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

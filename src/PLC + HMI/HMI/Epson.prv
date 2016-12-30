@@ -1,0 +1,49 @@
+// ***********************************************
+// *** Printer Driver for EPSON Matrix Printer ***
+// ***********************************************
+//
+// Description : S = General Settings
+//               I = Initialization
+//               G = Graphic Mode Settings
+//               R = Print Resolutions
+//               P = Printer Settings for Graphic Mode
+//
+// All parameters (excl. Sxx, Rxx) must be written in Hexadecimal
+// The text may not include the character ':'
+//
+#S00#  "Printer connected (0=Off/1=On)"       : 1
+#S01#  "Printer Baudrate"                     : 19200
+#S02#  "Print Speed (0= 1 line/s  >0= n char)": 80
+#S03#  "Print Multiple line (0=No 1=Yes)"     : 0
+#S04#  "Charakters per line"                  : 75
+#S05#  "Text column width in print form"      : 40
+#S06#  "Number column width in print form"    : 10
+#S07#  "Unit column width  im print form"     : 25
+#S08#  "Printer Timeout [ms]"                 : 10000
+
+#I00#  "Send BEFORE printing"                 : 
+#I01#  "Send AFTER  printing"                 : 
+#I02#  "Printer Init"                         : 1B 40 1B 35 00
+#I03#  "Printer Reset"                        : 
+#I04#  "Page Init Graphic mode"               : 1B 6C 03 1B 41 08
+#I05#  "Form Feed"                            : 0C
+#I06#  "Line Feed"                            : 0A
+#I07#  "Carriage Return"                      : 0D
+#I08#  "Line Space text mode printing"        : 1B 41 08
+#I09#  "Line Space graphic text printing"     : 1B 41 08
+#I10#  "Line Space graphic image printing"    : 1B 41 08
+#I11#  "Page Init Text Mode"                  : 1B 6C 03 1B 41 08
+        
+#G00#  "Graphic End"                          : 0D
+#G01#  "Graphic Init (180DPI,1024 Pixel)"     : 1B 2A 02 00 04
+#G02#  "Graphic Init (120DPI, 640 Pixel)"     : 1B 2A 04 80 02
+#G03#  "Graphic Init ( 60DPI, 320 Pixel)"     : 1B 2A 00 40 01
+
+#R01#  "Print Resolution (DPI,Pixel) of #G01)": 120 1024
+#R02#  "Print Resolution (DPI,Pixel) of #G02)": 80 640
+#R03#  "Print Resolution (DPI,Pixel) of #G03)": 60 320
+
+#P00#  "Send Data in horizontal lines (1=Yes)": 0
+#P01#  "Data bits per pixel (1..8)"           : 1
+#P02#  "Color index printed black"            : 00 09 0A 0B 0C 0D
+#P03#  "Graphic Mode supported (1=Yes)"       : 1

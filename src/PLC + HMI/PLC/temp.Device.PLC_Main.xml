@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbolconfiguration xmlns="http://www.3s-software.com/schemas/Symbolconfiguration.xsd">
+  <Header>
+    <Version>3.5.3.50</Version>
+    <SymbolConfigObject version="3.5.3.50" />
+    <ProjectInfo name="temp" devicename="Device" appname="PLC_Main" />
+  </Header>
+  <TypeList>
+    <TypeSimple name="T_BYTE" size="1" swapsize="1" typeclass="Byte" iecname="BYTE" />
+    <TypeSimple name="T_WORD" size="2" swapsize="2" typeclass="Word" iecname="WORD" />
+    <TypeSimple name="T_INT" size="2" swapsize="2" typeclass="Int" iecname="INT" />
+    <TypeSimple name="T_REAL" size="4" swapsize="4" typeclass="Real" iecname="REAL" />
+    <TypeArray name="T_ARRAY__0__5__OF_REAL" size="24" nativesize="24" typeclass="Array" iecname="ARRAY [0..5] OF REAL" basetype="T_REAL">
+      <ArrayDim minrange="0" maxrange="5" />
+    </TypeArray>
+  </TypeList>
+  <NodeList>
+    <Node name="PLC_Main">
+      <Node name="GVL">
+        <Node name="HMI_Blink_Time_High" type="T_WORD" access="ReadWrite" />
+        <Node name="HMI_Blink_Time_Low" type="T_WORD" access="ReadWrite" />
+        <Node name="HMI_blinkEnable" type="T_BYTE" access="ReadWrite" />
+        <Node name="HMI_Button_1" type="T_BYTE" access="ReadWrite" />
+        <Node name="HMI_Byte_1" type="T_BYTE" access="ReadWrite" />
+        <Node name="HMI_ROBKO_ARR_POS" type="T_ARRAY__0__5__OF_REAL" access="ReadWrite" />
+        <Node name="HMI_ROBKO_Button_SetZeroPos" type="T_BYTE" access="ReadWrite" />
+        <Node name="HMI_ROBKO_G01_BUTTON" type="T_BYTE" access="ReadWrite" />
+        <Node name="HMI_ROBKO_G01_X" type="T_INT" access="ReadWrite" />
+        <Node name="HMI_ROBKO_G01_Y" type="T_INT" access="ReadWrite" />
+        <Node name="HMI_ROBKO_G01_Z" type="T_INT" access="ReadWrite" />
+        <Node name="HMI_ROBKO_JOG_Neg" type="T_BYTE" access="ReadWrite" />
+        <Node name="HMI_ROBKO_JOG_Pos" type="T_BYTE" access="ReadWrite" />
+        <Node name="HMI_ROBKO_JOG_Switch" type="T_BYTE" access="ReadWrite" />
+        <Node name="HMI_ROBKO_JogByte" type="T_BYTE" access="ReadWrite" />
+      </Node>
+    </Node>
+  </NodeList>
+</Symbolconfiguration>

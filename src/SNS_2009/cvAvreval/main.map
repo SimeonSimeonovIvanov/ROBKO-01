@@ -1,0 +1,29 @@
+CodeVisionAVR C Compiler V1.25.6 Evaluation
+(C) Copyright 1998-2007 Pavel Haiduc, HP InfoTech s.r.l.
+http://www.hpinfotech.com
+
+File: D:\Developers\Elektronika\MCU\ATMEL\AVR\ATmega32\ROBKO\cvAvreval\main.c
+Global variables memory map:
+
+Variable                          Address   Size
+xOld_S8                                                                 R5      1
+yOld_S8                                                                 R4      1
+arrStep                                                               260h      8
+arrMotor[0].step                                                      268h      2
+arrMotor[0].direction                                                 26Ah      1
+arrMotor[0].state                                                     26Bh      1
+arrMotor[1].step                                                      26Ch      2
+arrMotor[1].direction                                                 26Eh      1
+arrMotor[1].state                                                     26Fh      1
+arrMotor[2].step                                                      270h      2
+arrMotor[2].direction                                                 272h      1
+arrMotor[2].state                                                     273h      1
+arrMotor[3].step                                                      274h      2
+arrMotor[3].direction                                                 276h      1
+arrMotor[3].state                                                     277h      1
+arrMotor[4].step                                                      278h      2
+arrMotor[4].direction                                                 27Ah      1
+arrMotor[4].state                                                     27Bh      1
+arrMotor[5].step                                                      27Ch      2
+arrMotor[5].direction                                                 27Eh      1
+arrMotor[5].state                                                     27Fh      1

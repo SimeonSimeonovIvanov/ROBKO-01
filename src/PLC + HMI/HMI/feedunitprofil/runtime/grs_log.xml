@@ -1,0 +1,861 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<systemdata>
+	<fileversion major='1' minor='0'/>
+	<systemmessages>
+		<message>
+			<data id='0' type='info'/>
+			<en text="%1"/>
+			<de text="%1"/>
+			<fr text="%1"/>
+			<sp text="%1"/>
+			<it text="%1"/>
+			<usr text="%1"/>
+		</message>
+		<message>
+			<data  id='1' type='error'/>
+			<en text="This function is not supported - %1"/>
+			<de text="Diese Funktion wird nicht unterstützt - %1"/>
+			<fr text="Cette fonction n'est pas soutenue - %1"/>
+			<sp text="Esta función no se utiliza - %1"/>
+			<it text="Questa funzione non è supportata - %1"/>
+			<usr text="This function is not supported - %1"/>
+		</message>
+		<message>
+			<data  id='2' type='error'/>
+			<en text="Too many actual error entries (limit %1!d!)"/>
+			<de text="Zuviele Fehlermeldungen anstehend (Limite %1!d!)"/>
+			<fr text="Génération nombre exagéré de messages d'erreur (Limite %1!d!)"/>
+			<sp text="Hay muchos avisos de errores (limite %1!d!)"/>
+			<it text="Troppi messaggi di errore (Limite %1!d!)"/>
+			<usr text="Too many actual error entries (limit %1!d!)"/>
+		</message>
+		<message>
+			<data  id='3' type='error'/>
+			<en text="%1"/>
+			<de text="%1"/>
+			<fr text="%1"/>
+			<sp text="%1"/>
+			<it text="%1"/>
+			<usr text="%1"/>
+		</message>
+		<message>
+			<data  id='4' type='error'/>
+			<en text="Error in script %1"/>
+			<de text="Fehler in Skript %1"/>
+			<fr text="Erreur en séquence %1"/>
+			<sp text="Error en escritura %1"/>
+			<it text="Errore nello Script %1"/>
+			<usr text="Error in script %1"/>
+		</message>
+		<message>
+			<data  id='5' type='error'/>
+			<en text="The function %1 failed on execution ! (%2)"/>
+			<de text="Die Funktion %1 konnte nicht ausgeführt werden ! (%2)"/>
+			<fr text="La fonction %1 est échcuée pendent l'exécution ! (%2)"/>
+			<sp text="La funcion %1 fallado durante la ejecucion ! (%2)"/>
+			<it text="La funzione %1 fallita durante l'esecuzione ! (%2)"/>
+			<usr text="The function %1 failed on execution ! (%2)"/>
+		</message>
+		<message> 
+			<data id='6' type='error'/>
+			<en text="Project entry mask (%1) not found"/>
+			<de text="Projekt Einstiegsmaske (%1) nicht gefunden"/>
+			<fr text="Masque entrée projet (%1) introuvable"/>
+			<sp text="No se encontró proyecto de la máscara de entrada (%1)"/>
+			<it text="Maschera iniziale progetto (%1) non trovata"/>
+			<usr text="Project entry mask (%1) not found"/>
+		</message>
+		<message> 
+			<data id='7' type='error'/> 
+			<en text="Connection %1!d! not supported"/>
+			<de text="Schnittstelle %1!d! wird nicht unterstützt"/>
+			<fr text="Connexion %1!d! non supportée"/>
+			<sp text="Conexión %1!d! no utilizada"/>
+			<it text="Collegamento %1!d! non supportato"/>
+			<usr text="Connection %1!d! not supported"/>
+		</message>
+		<message> 
+			<data id='8' type='error'/> 
+			<en text="Can't read from text number %1!d! from file %2"/>
+			<de text="Kann ab Text Nummer %1!d! in Datei %2 nicht lesen"/>
+			<fr text="Impossible de trouver de texte %1!d! de fichier %2"/>
+			<sp text="No puede encontrar di testi %1!d! (fichero %2)"/>
+			<it text="Impossibile trovare il testo %1!d! (file %2)"/>
+			<usr text="Can't read from text number %1!d! from file %2"/>
+		</message>
+		<message>
+			<data id='9' type='error'/> 
+			<en text="Touch dirty or uncalibrated"/>
+			<de text="Touch verschmutzt oder nicht kalibriert"/>
+			<fr text="Touch/cadre tactil sale ou non-calibré"/>
+			<sp text="Touch/marco táctil sucio o sin calibrar"/>
+			<it text="Touch sporco o senza calibrazione"/>
+			<usr text="Touch dirty or uncalibrated"/>
+		</message>
+		<message>
+			<data id='10' type='error'/> 
+			<en text="No User Account available"/>
+			<de text="Kein verfügbares Benutzerkonto"/>
+			<fr text="Compte d'utilisateur n'est pas disponible"/>
+			<sp text="Ninguna cuenta de usario disponible"/>
+			<it text="Nessun utente disponibile"/>
+			<usr text="No User Account available"/>
+		</message>
+		<message>
+			<data id='11' type='error'/>
+			<en text="Touchcontroller not found"/>
+			<de text="Touchcontroller wurde nicht gefunden"/>
+			<fr text="Contrôleur d'effleurement introuvable"/>
+			<sp text="No se encontró controlador táctil"/>
+			<it text="Controller touch non trovato"/>
+			<usr text="Touchcontroller not found"/>
+		</message>
+		<message>
+			<data id='12' type='error'/>
+			<en text="No project file found (%1)"/>
+			<de text="Es wurde keine Projektdatei gefunden (%1)"/>
+			<fr text="Aucun fichier projet disponible (%1)"/>
+			<sp text="No se encontró fichero del proyecto (%1)"/>
+			<it text="Nessun file di progetto trovato (%1)"/>
+			<usr text="No project file found (%1)"/>
+		</message>
+		<message>
+			<data id='13' type='error'/>
+			<en text="Domain Controller not available"/>
+			<de text="Domain Controller nicht verfügbar"/>
+			<fr text="Contrôleur de domaine n'est pas disponible"/>
+			<sp text="Domain Controller no esta disponible"/>
+			<it text="Controllore di dominio non disponibile"/>
+			<usr text="Domain Controller not available"/>
+		</message>
+		<message>
+			<data id='14' type='error'/>
+			<en text="Program aborted by error (%1)"/>
+			<de text="Programmabbruch durch schwerwiegenden Fehler (%1)"/>
+			<fr text="Arret non conditionné pour cause d'erreur fatale (%1)"/>
+			<sp text="Terminatión anormal del programa a causa de error grave (%1)"/>
+			<it text="Programma terminato per errore interno (%1)"/>
+			<usr text="Program aborted by error (%1)"/>
+		</message>
+		<message>
+			<data id='15' type='error'/>
+			<en text="System palette (%1) not found or defect"/>
+			<de text="Systempalette (%1) wurde nicht gefunden"/>
+			<fr text="Palette système (%1) introuvable"/>
+			<sp text="No se encontró plataforma del sistema (%1)"/>
+			<it text="System Palette (%1) non trovata"/>
+			<usr text="System palette (%1) not found or defect"/>
+		</message>
+		<message>
+			<data id='16' type='error'/>
+			<en text="Can't create or write to file %1"/>
+			<de text="Kann Datei %1 nicht erstellen oder beschreiben"/>
+			<fr text="Impossible de générer ou écrire fichier %1"/>
+			<sp text="No puede crear o describir fichero %1"/>
+			<it text="Impossibile creare o salvara file %1"/>
+			<usr text="Can't create or write to file %1"/>
+		</message>
+		<message>
+			<data id='17' type='error'/>
+			<en text="Can't find or read from file %1"/>
+			<de text="Kann Datei %1 nicht finden oder lesen"/>
+			<fr text="Impossible de trouver ou de lire fichier %1"/>
+			<sp text="No puede encontrar o leer fichero %1"/>
+			<it text="Impossibile trovare o aprire file %1"/>
+			<usr text="Can't find or read from file %1"/>
+		</message>
+		<message>
+			<data id='18' type='error'/>
+			<en text="Header of file %1 is invalid"/>
+			<de text="Dateikopf von %1 ist nicht gültig"/>
+			<fr text="En-tête fichier de %1 est invalide"/>
+			<sp text="No es válido encabezam. del fichero %1"/>
+			<it text="Intestazione file %1 non valida"/>
+			<usr text="Header of file %1 is invalid"/>
+		</message>
+		<message>
+			<data id='19' type='error'/>
+			<en text="Size of file %1 is invalid"/>
+			<de text="Dateigrösse von %1 ist nicht korrekt"/>
+			<fr text="Taille fichier de %1 est incorrecte"/>
+			<sp text="Tamaño del fichero %1 no es correcto"/>
+			<it text="Dimensioni file di %1 non corrette"/>
+			<usr text="Size of file %1 is invalid"/>
+		</message>
+		<message>
+			<data id='20' type='info'/>
+			<en text="Firmware %1 on %2"/>
+			<de text="Firmware %1 an %2"/>
+			<fr text="Firmware %1 sur %2"/>
+			<sp text="Firmware %1 en el %2"/>
+			<it text="Firmware %1 su %2"/>
+			<usr text="Firmware %1 on %2"/>
+		</message>
+		<message>
+			<data id='21' type='info'/>
+			<en text="Driver %1 on %2"/>
+			<de text="Treiber %1 an %2"/>
+			<fr text="Routine %1 sur %2"/>
+			<sp text="Driver %1 en el %2"/>
+			<it text="Driver %1 su %2"/>
+			<usr text="Driver %1 on %2"/>
+		</message>
+		<message>
+			<data id='22' type='error'/>
+			<en text="No Password entered"/>
+			<de text="Kein Passwort eingegeben"/>
+			<fr text="Pas d'entrée du mot de passe"/>
+			<sp text="No introducido la clave de acceso"/>
+			<it text="Nessuna password inserita"/>
+			<usr text="No Password entered"/>
+		</message>
+		<message>
+			<data id='23' type='error'/>
+			<en text="Password has expired"/>
+			<de text="Passwort ist abgelaufen"/>
+			<fr text="Le mot de passe est expiré"/>
+			<sp text="Tiempo de la clave de acceso trascurrido"/>
+			<it text="Password scaduta"/>
+			<usr text="Password has expired"/>
+		</message>
+		<message>
+			<data id='24' type='info'/>
+			<en text="User %1 has been successful unlocked"/>
+			<de text="Benutzer %1 wurde erfolgreich entsperrt"/>
+			<fr text="L'utilisateur %1 a été debloqué avec succès"/>
+			<sp text="Usario %1 ha sido desbloqueado con éxito"/>
+			<it text="Utente %1 è stato sbloccato con successo"/>
+			<usr text="User %1 has been successful unlocked"/>
+		</message>
+		<message>
+			<data id='25' type='error'/>
+			<en text="Invalid Username"/>
+			<de text="Benutzername ungültig"/>
+			<fr text="Nom d'utilisateur pas valide"/>
+			<sp text="Nombre de usario no válido"/>
+			<it text="Nome utente non valido"/>
+			<usr text="Invalid Username"/>
+		</message>
+		<message>
+			<data id='26' type='error'/>
+			<en text="Max. authentication fail limit reached -> User Account locked"/>
+			<de text="Max. Anzahl fehlgeschlagener Logins erreicht -> Benutzer gesperrt"/>
+			<fr text="Max. fausse authentification atteint -> Compte d'utilisateur bloqué"/>
+			<sp text="Llegado al limite de intentos de autenticaciónes fallidos-> Cuenta de usario bloqueada"/>
+			<it text="Limite tentativi di autenticazione raggiunto -> Account utente bloccato"/>
+			<usr text="Max. authentication fail limit reached -> User Account locked"/>
+		</message>
+		<message>
+			<data id='27' type='error'/>
+			<en text="Can't find %1 driver in %2"/>
+			<de text="%1 Treiber wurde in %2 nicht gefunden"/>
+			<fr text="Routine enfichable %1 introuvable sur %2"/>
+			<sp text="No se encontró en el %2 la placa %1"/>
+			<it text="Impossibile trovare il driver %1 in %2"/>
+			<usr text="Can't find %1 driver in %2"/>
+		</message>
+		<message>
+			<data id='28' type='error'/>
+			<en text="Communication disturbed: %1"/>
+			<de text="Kommunikation gestört: %1"/>
+			<fr text="Communication perturbée: %1"/>
+			<sp text="Communicacion interumpida: %1"/>
+			<it text="Communicazione disturbata: %1"/>
+			<usr text="Communication disturbed: %1"/>
+		</message>
+		<message>
+			<data id='29' type='info'/>
+			<en text="%1 selected on %2"/>
+			<de text="%1 angewählt für %2"/>
+			<fr text="%1 sélecté sur %2"/>
+			<sp text="%1 elegido de %2"/>
+			<it text="%1 selezionati per %2"/>
+			<usr text="%1 selected on %2"/>
+		</message>
+		<message>
+			<data id='30' type='error'/>
+			<en text="No more memory space for User Account"/>
+			<de text="Kein freier Speicherplatz für Benutzerkonto"/>
+			<fr text="Plus de memoire libre pour un compte d'utilisateur"/>
+			<sp text="Ninguna memoria disponible para la cuenta de usuario"/>
+			<it text="Nessuna memoria disponibile per l'Account utente"/>
+			<usr text="No more memory space for User Account"/>
+		</message>
+		<message>
+			<data id='31' type='error'/>
+			<en text="Camera path not found ('%1')"/>
+			<de text="Pfad der Kamera wurde nicht gefunden ('%1')"/>
+			<fr text="Camera introuvable ('%1')"/>
+			<sp text="No se encontró camera ('%1')"/>
+			<it text="Camera non trovata ('%1')"/>
+			<usr text="Camera path not found ('%1')"/>
+		</message>
+		<message>
+			<data id='32' type='error'/>
+			<en text="No help/info window defined for actual mask ('%1')"/>
+			<de text="Kein Hilfe-/Infofenster in der Maske ('%1') definiert"/>
+			<fr text="Aucune fenêtre d'aide/d'information definie au masque ('%1')"/>
+			<sp text="No definida ventana de ayuda/información en la máscara ('%1')"/>
+			<it text="Nessuna finestra Help/Info definita per la maschera attuale ('%1')"/>
+			<usr text="No help/info window defined for actual mask ('%1')"/>
+		</message>
+		<message>
+			<data id='33' type='error'/>
+			<en text="%1 number %2!d! not found"/>
+			<de text="%1 Nummer %2!d! nicht gefunden"/>
+			<fr text="%1 numéro %2!d! introuvable"/>
+			<sp text="%1 Nùmeo %2!d! no se encontró"/>
+			<it text="%1 numero %2!d! non trovato"/>
+			<usr text="%1 number %2!d! not found"/>
+		</message>
+		<message>
+			<data id='34' type='error'/>
+			<en text="No more memory available for function %1"/>
+			<de text="Kein Speicher für Funktion %1 verfügbar"/>
+			<fr text="Capacité mémoire insuffisante pour fonction %1"/>
+			<sp text="No disponible memoria para función %1"/>
+			<it text="Memoria non disponibile per la funzione %1"/>
+			<usr text="No more memory available for function %1"/>
+		</message>
+		<message>
+			<data id='35' type='info'/>
+			<en text="New system language selected"/>
+			<de text="Neue Systemsprache angewählt"/>
+			<fr text="Sélection langue système"/>
+			<sp text="Se seleccionó sistema de lenguaje"/>
+			<it text="Nuova lingua di sistema selezionata"/>
+			<usr text="New system language selected"/>
+		</message>
+		<message>
+			<data id='36' type='info'/>
+			<en text="File %1 saved to flash card"/>
+			<de text="Datei %1 wurde auf Flashkarte gesichert"/>
+			<fr text="Fichier %1 sauvegardé sur carte mémoire flash"/>
+			<sp text="Se aseguró fichero %1 en módulo flash"/>
+			<it text="File %1 salvato su 'scheda flash'"/>
+			<usr text="File %1 saved to flash card"/>
+		</message>
+		<message>
+			<data id='37' type='error'/>
+			<en text="Target mask does not exist in actual project"/>
+			<de text="Zielmaske existiert nicht im aktuellen Projekt"/>
+			<fr text="Masque destination n'existe pas dans projet actuel"/>
+			<sp text="No existe máscara de destino en proyecto actual"/>
+			<it text="Maschera di destinazione inesistente"/>
+			<usr text="Target mask does not exist in actual project"/>
+		</message>
+		<message>
+			<data id='38' type='error'/>
+			<en text="No object selected"/>
+			<de text="Kein Objekt selektiert"/>
+			<fr text="Aucun objet choisi"/>
+			<sp text="Ningún objeto seleccionado"/>
+			<it text="Nessun oggetto selezionato"/>
+			<usr text="No object selected"/>
+		</message>
+		<message>
+			<data id='39' type='error'/>
+			<en text="Missing OS components, please download OS again"/>
+			<de text="OS Komponenten fehlen, führen Sie den Download für das OS nochmals durch"/>
+			<fr text="Les composants manquants de système d'opération, téléchargent svp le système d'opération encore"/>
+			<sp text="Los componentes del sistema operativo que faltan, descargan por favor el sistema operativo otra vez"/>
+			<it text="Sistema Operativo danneggiato, trasferire nuovamente il Sistema Operativo"/>
+			<usr text="Missing components, please download OS again"/>
+		</message>
+		<message>
+			<data id='40' type='error'/>
+			<en text="No Username entered"/>
+			<de text="Kein Benutzernamen eingegeben"/>
+			<fr text="Pas d'entrée du nom d'utilisateur"/>
+			<sp text="Ningún usuario definido"/>
+			<it text="Nessun utente inserito"/>
+			<usr text="No Username entered"/>
+		</message>
+		<message>
+			<data id='41' type='error'/>
+			<en text="File %1 was generated by wrong compiler version"/>
+			<de text="Datei %1 wurde mit falscher Compilerversion erstellt"/>
+			<fr text="Fichier %1 est établi par un compilateur de faux version"/>
+			<sp text="Se creó fichero %1 con compilador con una falsa versión"/>
+			<it text="Il file %1 è stato creato con versione di compilatore non supportata"/>
+			<usr text="File %1 was generated by wrong compiler version"/>
+		</message>
+		<message>
+			<data id='42' type='error'/>
+			<en text="No printer connected"/>
+			<de text="Es ist kein Drucker angeschlossen"/>
+			<fr text="Aucune imprimante n'est raccordée"/>
+			<sp text="Impresora no está conectada"/>
+			<it text="Stampante non collegata"/>
+			<usr text="No printer connected"/>
+		</message>
+		<message>
+			<data id='43' type='error'/>
+			<en text="Printer is not ready %1"/>
+			<de text="Drucker ist nicht bereit %1"/>
+			<fr text="Imprimante n'est pas prête %1"/>
+			<sp text="Impresora no está lista %1"/>
+			<it text="Stampante non pronta %1"/>
+			<usr text="Printer is not ready %1"/>
+		</message>
+		<message>
+			<data id='44' type='info'/>
+			<en text="Printer is ready %1"/>
+			<de text="Drucker ist bereit %1"/>
+			<fr text="Imprimante est prête %1"/>
+			<sp text="Impresora está lista %1"/>
+			<it text="Stampante pronta %1"/>
+			<usr text="Printer is ready %1"/>
+		</message>
+		<message>
+			<data id='45' type='error'/>
+			<en text="Printer is busy"/>
+			<de text="Drucker ist beschäftigt"/>
+			<fr text="Imprimante exécute une opération"/>
+			<sp text="Impresora está ocupada"/>
+			<it text="Stampante occupata"/>
+			<usr text="Printer is busy"/>
+		</message>
+		<message>
+			<data id='46' type='error'/>
+			<en text="Print failed!"/>
+			<de text="Druck hat fehlgeschlagen!"/>
+			<fr text="Copie échouée!"/>
+			<sp text="Impresión fallada!"/>
+			<it text="Stampa fallita!"/>
+			<usr text="Print failed!"/>
+		</message>
+		<message>
+			<data id='47' type='info'/>
+			<en text="Communication OK on %1"/>
+			<de text="Kommunikation OK an %1"/>
+			<fr text="Communication active sur %1"/>
+			<sp text="Communicacion OK en el %1"/>
+			<it text="Communicazione OK con %1"/>
+			<usr text="Communication OK on %1"/>
+		</message>
+		<message>
+			<data id='48' type='error'/>
+			<en text="Communication disturbed: message '%2'%1"/>
+			<de text="Kommunikation gestört: Nachricht '%2'%1"/>
+			<fr text="Communication perturbée: message '%2'%1"/>
+			<sp text="Communicacion interumpida: mensaje '%2'%1"/>
+			<it text="Communicazione disturbata: messaggio '%2'%1"/>
+			<usr text="Communication disturbed: message '%2'%1"/>
+		</message>
+		<message>
+			<data id='49' type='error'/>
+			<en text="Not enough Diskspace available (&lt;%1!d! kB)"/>
+			<de text="Laufwerk hat nicht genügend Speicherkapazität (&lt;%1!d! kB)"/>
+			<fr text="Disque n'a pas suffisament de capacit‚ de mémoire (&lt;%1!d! kB)"/>
+			<sp text="Disqueta no tiene bastante capacidad de memoria (&lt;%1!d! kB)"/>
+			<it text="Memoria Disco esaurita (&lt;%1!d! kB)"/>
+			<usr text="Disque n'a pas suffisament de capacit‚ de mémoire (&lt;%1!d! kB)"/>
+		</message>
+		<message>
+			<data id='50' type='error'/>
+			<en text="Touch is dirty or defect"/>
+			<de text="Touchfilter ist verschmutzt oder defekt"/>
+			<fr text="Filtre effleurement sale ou defectueux"/>
+			<sp text="Filtro táctil està sucio o defectuoso"/>
+			<it text="Touch sporco o difettoso"/>
+			<usr text="Touch is dirty or defect"/>
+		</message>
+		<message>
+			<data id='51' type='error'/>
+			<en text="The recipe file %1 is damaged"/>
+			<de text="Rezeptdaten-Datei %1 ist defekt"/>
+			<fr text="Le fichier %1 des donneés des recettes est défecteux"/>
+			<sp text="Archivo de datos de receta %1 esta defectuoso"/>
+			<it text="Il file ricetta %1 è danneggiato"/>
+			<usr text="The recipe file %1 is damaged"/>
+		</message>
+		<message>
+			<data id='52' type='info'/>
+			<en text="Check and convert the file %1 (%2!d!%%)"/>
+			<de text="Überprüfe und konvertiere die Datei %1 (%2!d!%%)"/>
+			<fr text="Contrôler et changer le fichier %1 (%2!d!%%)"/>
+			<sp text="Revisar y convertir el archivo %1 (%2!d!%%)"/>
+			<it text="Controllare e convertire il file %1 (%2!d!%%)"/>
+			<usr text="Check and convert the file %1 (%2!d!%%)"/>
+		</message>
+		<message>
+			<data id='53' type='error'/>
+			<en text="User Account %1 does not exist"/>
+			<de text="Benutzerkonto %1 existiert nicht"/>
+			<fr text="Compte d'utilisateur %1 n'existe pas"/>
+			<sp text="Nombre de usuario %1 no existe"/>
+			<it text="Nome utente %1 non esistente"/>
+			<usr text="User Account %1 does not exist"/>
+		</message>
+		<message>
+			<data id='54' type='error'/>
+			<en text="User Account %1 already exist"/>
+			<de text="Benutzerkonto %1 existiert bereits"/>
+			<fr text="Compte d'utilisateur %1 existe déjà"/>
+			<sp text="Nombre de usario %1 ya existe"/>
+			<it text="Nome Utente %1 già presente"/>
+			<usr text="User Account %1 already exist"/>
+		</message>
+		<message>
+			<data id='55' type='error'/>
+			<en text="Service not available, please contact your domain administrator"/>
+			<de text="Service nicht verfügbar. Bitte kontaktieren Sie den Domain Administrator"/>
+			<fr text="Service non disponible, veuillez contacter votre administrateur de domaine"/>
+			<sp text="Mantenga no disponible, entre en contacto con por favor a su administrador del dominio"/>
+			<it text="Servizio non disponibile, prego contattare l'amministratore di rete"/>
+			<usr text="Service not available, please contact your domain administrator"/>
+		</message>
+		<message>
+			<data id='56' type='error'/>
+			<en text="Invalid Password"/>
+			<de text="Passwort ungültig"/>
+			<fr text="Mot de passe nul"/>
+			<sp text="Codigo falso"/>
+			<it text="Password errata"/>
+			<usr text="Invalid Password"/>
+		</message>
+		<message>
+			<data id='57' type='error'/>
+			<en text="No Group name entered"/>
+			<de text="Kein Gruppennamen eingegeben"/>
+			<fr text="Pas d'entrée d'un groupe d'utilisateurs"/>
+			<sp text="Ningún grupo de usuario definido"/>
+			<it text="Nessun gruppo di utenti definito"/>
+			<usr text="No Group name entered"/>
+		</message>
+		<message>
+			<data id='58' type='error'/>
+			<en text="New Password already used in history"/>
+			<de text="Passwort wurde früher bereits verwendet"/>
+			<fr text="Mot de passe a déjà été utilisé"/>
+			<sp text="Nueva clave de acceso ya ha sido utilizada anteriormente"/>
+			<it text="La nuova Password è già presente nello storico"/>
+			<usr text="New Password already used in history"/>
+		</message>
+		<message>
+			<data id='59' type='error'/>
+			<en text="Password verification invalid"/>
+			<de text="Passwortbestätigung nicht korrekt"/>
+			<fr text="Confirmation du mot de passe incorrect"/>
+			<sp text="Confirmación codigo falso"/>
+			<it text="Verifica Password fallita"/>
+			<usr text="Password verification invalid"/>
+		</message>
+		<message>
+			<data id='60' type='error'/>
+			<en text="No permission to create User Account"/>
+			<de text="Keine Berechtigung zum Erstellen des Benutzerkontos"/>
+			<fr text="Pas de permission de créer un compte d'utilisateur"/>
+			<sp text="Ningúna autorización de crear una cuenta de usuario"/>
+			<it text="Creazione nuovo utente: Autorizzazione negata"/>
+			<usr text="No permission to create User Account"/>
+		</message>
+		<message>
+			<data id='61' type='error'/>
+			<en text="No permission to delete User Account"/>
+			<de text="Keine Berechtigung zum Löschen des Benutzerkontos"/>
+			<fr text="Pas de permission d'effacer des comptes d'utilisateur"/>
+			<sp text="Ningúna autorización de borrar una cuenta de usuario"/>
+			<it text="Cancellazione utente: Autorizzazione negata"/>
+			<usr text="No permission to delete User Account"/>
+		</message>
+		<message>
+			<data id='62' type='error'/>
+			<en text="Incorrect Galileo registration code - %1 DEMO mode"/>
+			<de text="Ungültiger Galileo Registrierungscode - %1 DEMO Mode"/>
+			<fr text="Galileo code de registration pas correct - %1 mode Démo"/>
+			<sp text="Galileo Códice Registrar inválido - %1 DEMO mode"/>
+			<it text="Codice registrazione Galileo non valido - %1 DEMO mode"/>
+			<usr text="Incorrect Galileo registration code - %1 DEMO mode"/>
+		</message>
+		<message>
+			<data id='63' type='error'/>
+			<en text="No recipe %1 found in mask"/>
+			<de text="Kein Rezept %1 in aktueller Maske"/>
+			<fr text="Recette %1 n'était pas en masque"/>
+			<sp text="Receta %1 no es en màscara"/>
+			<it text="Nessuna Ricetta %1 nella pagina"/>
+			<usr text="No recipe %1 found in mask"/>
+		</message>
+		<message>
+			<data id='64' type='error'/>
+			<en text="Recipe %1 not defined"/>
+			<de text="Kein Rezept %1 definiert"/>
+			<fr text="Recette %1 n'est pas definée"/>
+			<sp text="Receta %1 no es definido"/>
+			<it text="Ricetta %1 non definita"/>
+			<usr text="Recipe %1 not defined"/>
+		</message>
+		<message>
+			<data id='65' type='error'/>
+			<en text="No enhanced recipe %1 defined"/>
+			<de text="Kein Enhanced - Rezept %1 definiert"/>
+			<fr text="Recette &lt; enhanced &gt; %1 n'est pas definée"/>
+			<sp text="Receta &lt; enhanced &gt; %1 no es definido"/>
+			<it text="Ricetta avanzata %1 non definita"/>
+			<usr text="No enhanced recipe %1 defined"/>
+		</message>
+		<message>
+			<data id='66' type='error'/>
+			<en text="Time elapsed for DEMO mode"/>
+			<de text="Zeit für DEMO Mode ist abgelaufen"/>
+			<fr text="Le demo mode est passé"/>
+			<sp text="Time elapsed for DEMO mode"/>
+			<it text="Fine tempo DEMO Mode"/>
+			<usr text="Time elapsed for DEMO mode"/>
+		</message>
+		<message>
+			<data id='67' type='error'/>
+			<en text="No valid runtime license found - DEMO mode"/>
+			<de text="Keine gültige Runtime Lizenz gefunden - DEMO Mode"/>
+			<fr text="Pas trouvé une licence valide runtime - DEMO mode"/>
+			<sp text="No buscato valida licenza runtime - DEMO mode"/>
+			<it text="Nessuna licenza valida Runtime trovata - DEMO mode"/>
+			<usr text="No valid runtime license found - DEMO mode"/>
+		</message>
+		<message>
+			<data id='68' type='error'/>
+			<en text="No enhanced graph defined : %1!d!"/>
+			<de text="Kein Enhanced - Graph %1!d! definiert"/>
+			<fr text="Graph &lt; enhanced &gt; n'est pas definée: %1!d!"/>
+			<sp text="&lt;Graph enhanced &gt; %1!d! no es definido"/>
+			<it text="Nessun grafico avanzato definito : %1!d!"/>
+			<usr text="No enhanced graph defined : %1!d!"/>
+		</message>
+		<message>
+			<data id='69' type='error'/>
+			<en text="No active User present"/>
+			<de text="Kein aktiver Benutzer eingeloggt"/>
+			<fr text="Pas d'utilisateur connecté"/>
+			<sp text="Ningún usuario actualmente registrado"/>
+			<it text="Nessun utente attivo presente"/>
+			<usr text="No active User present"/>
+		</message>
+		<message>
+			<data id='70' type='error'/>
+			<en text="User %1 has been locked"/>
+			<de text="Benutzer %1 wurde gesperrt"/>
+			<fr text="L'utilisateur %1 a été bloqué"/>
+			<sp text="Usuario %1 ha sido bloqueado"/>
+			<it text="Utente %1 è stato bloccato"/>
+			<usr text="User %1 has been locked"/>
+		</message>
+		<message>
+			<data id='71' type='error'/>
+			<en text="Not allowed deleting active User Account"/>
+			<de text="Löschen eines aktiven Benutzerkontos ist nicht erlaubt"/>
+			<fr text="Il nest pas permi d'effacer un compte d'utilisateur actif"/>
+			<sp text="Borrar una cuenta de un usuario activo no es permitido"/>
+			<it text="Non è possibile eliminare l'utente attivo"/>
+			<usr text="Not allowed deleting active User Account"/>
+		</message>
+		<message>
+			<data id='72' type='info'/>
+			<en text="Please, change your Password"/>
+			<de text="Bitte ändern Sie Ihr Passwort"/>
+			<fr text="Changez votre mot de passe svp"/>
+			<sp text="Por favor cambie su clave de acceso"/>
+			<it text="Prego, modificare la propria Password"/>
+			<usr text="Please, change your Password"/>
+		</message>
+		<message>
+			<data id='73' type='error'/>
+			<en text="Password length has to be %1!d! characters long in minimum"/>
+			<de text="Verwenden Sie min. %1!d! Zeichen für Ihr Passwort"/>
+			<fr text="Le mot de passe doit avoir und longeur de %1!d! characters au minimum"/>
+			<sp text="Hacer uso de al menos %1!d! señas para la clave de acceso"/>
+			<it text="La Password deve contenere almeno %1!d! caratteri"/>
+			<usr text="Password length has to be %1!d! characters long in minimum"/>
+		</message>
+		<message>
+			<data id='74' type='error'/>
+			<en text="Password length has to be %1!d! characters long in maximum"/>
+			<de text="Verwenden Sie max. %1!d! Zeichen für Ihr Passwort"/>
+			<fr text="Le mot de passe n'ose pas avoir plus que %1!d! characters"/>
+			<sp text="La clave de acceso consiste de màximo %1!d! señas"/>
+			<it text="La Password non deve superare i %1!d! caratteri"/>
+			<usr text="Password length has to be %1!d! characters long in maximum"/>
+		</message>
+		<message>
+			<data id='75' type='error'/>
+			<en text="No permission to change Password"/>
+			<de text="Keine Berechtigung zum Ändern des Passworts"/>
+			<fr text="Pas de permission de changer le mot de passe"/>
+			<sp text="Ningúna autorización de cambiar la clave de acceso"/>
+			<it text="Camvio Password: Autorizzazione Negata"/>
+			<usr text="No permission to change Password"/>
+		</message>
+		<message>
+			<data id='76' type='error'/>
+			<en text="No permission to change Password for User: %1"/>
+			<de text="Keine Berechtigung zum Ändern des Passworts für Benutzer: %1"/>
+			<fr text="Pas de permission de changer le mot de passe de l'utilisateur: %1"/>
+			<sp text="Ningúna autorización de cambiar la clave de acceso para el usuario: %1"/>
+			<it text="Autorizzazione Negata Cambio Password altro utente: %1"/>
+			<usr text="No permission to change Password for User: %1"/>
+		</message>
+		<message>
+			<data id='77' type='error'/>
+			<en text="No permission to assign User: %1 to a Group"/>
+			<de text="Keine Berechtigung um den Benutzer: %1 einer Gruppe zuzuweisen!"/>
+			<fr text="Pas de permission d'assigner l'utilisateur: %1 à un group"/>
+			<sp text="Ninguna autorización de asignar el usuario: %1 a un grupo"/>
+			<it text="Autorizzazione Negata cambio gruppo utente: %1"/>
+			<usr text="No permission to assign Group to User: %1"/>
+		</message>
+		<message>
+			<data id='78' type='error'/>
+			<en text="No permission to lock User Account: %1"/>
+			<de text="Keine Berechtigung zum Sperren des Benutzerkontos: %1"/>
+			<fr text="Pas de permission de bloquer le compte d'utilisateur: %1"/>
+			<sp text="Ninguna autorización de bloquear la cuenta de usuario: %1"/>
+			<it text="Autorizzazione Negata blocco utente: %1"/>
+			<usr text="No permission to lock User Account: %1"/>
+		</message>
+		<message>
+			<data id='79' type='error'/>
+			<en text="No permission to unlock User Account: %1"/>
+			<de text="Keine Berechtigung zur Freigabe des Benutzerkontos: %1"/>
+			<fr text="Pas de permission de débloquer le compte d'utilisateur: %1"/>
+			<sp text="Ninguna autorización de desbloquear la cuenta de usuario: %1"/>
+			<it text="Autorizzazione Negata sblocco utente: %1"/>
+			<usr text="No permission to unlock User Account: %1"/>
+		</message>
+		<message>
+			<data id='80' type='error'/>
+			<en text="No permission to modify Group"/>
+			<de text="Keine Berechtigung um die Gruppezugehörigkeit zu ändern"/>
+			<fr text="Pas de permission de change l'assignement du group"/>
+			<sp text="Ninguna autorización de modificar la pertenencia a un grupo"/>
+			<it text="Modifica gruppo: Autorizzazione Negata"/>
+			<usr text="No permission to modify Group"/>
+		</message>
+		<message>
+			<data id='81' type='info'/>
+			<en text="User %1 has been successful locked"/>
+			<de text="Benutzer %1 wurde erfolgreich gesperrt"/>
+			<fr text="L'utilisateur %1 a été bloqué avec succès"/>
+			<sp text="Usuario %1 ha sido bloqueado con éxito"/>
+			<it text="Utente %1 è stato bloccato con successo"/>
+			<usr text="User %1 has been successful locked"/>
+		</message>
+		<message>
+			<data id='82' type='error'/>
+			<en text="Invalid Group name: %1"/>
+			<de text="Ungültiger Gruppenname: %1"/>
+			<fr text="d'un groupe d'utilisateurs pas valide: %1"/>
+			<sp text="Ningún grupo de usuario no válido: %1"/>
+			<it text="Nessun gruppo di utenti valido: %1"/>
+			<usr text="Invalid Group name: %1"/>
+		</message>
+		<message>
+			<data id='83' type='error'/>
+			<en text="Invalid dynamic Password"/>
+			<de text="Dynamisches Passwort ungültig"/>
+			<fr text="Mot de passe dynamique nul"/>
+			<sp text="Codigo dinámico falso"/>
+			<it text="Password Dinamica non corretta"/>
+			<usr text="Invalid dynamic Password"/>
+		</message>
+		<message>
+			<data id='84' type='error'/>
+			<en text="Active User already present"/>
+			<de text="Aktiver Benutzer bereits eingeloggt"/>
+			<fr text="Utilisateur active déjà connecté"/>
+			<sp text="Usuario actualmente registrado"/>
+			<it text="Utente già loggato"/>
+			<usr text="Active User already present"/>
+		</message>
+		<message>
+			<data id='85' type='error'/>
+			<en text="Security key does not correspond to the WebService"/>
+			<de text="Sicherheitsschlüssel passt nicht zum WebService"/>
+			<fr text="La clef de sécurité ne correspond pas au WebService"/>
+			<sp text="La llave de la seguridad no corresponde al WebService"/>
+			<it text="La chiave di sicurezza non corrisponde al WebService"/>
+			<usr text="Security key does not correspond to the WebService"/>
+		</message>
+		<message>
+			<data id='86' type='error'/>
+			<en text="No user authorization for %1 !"/>
+			<de text="Keine Zugriffsberechtigung für %1 !"/>
+			<fr text="Pas droit d'accès pour %1 !"/>
+			<sp text="No tiene permiso de intervenciòn para %1 !"/>
+			<it text="Autorizazione per %1 negata !"/>
+			<usr text="No user authorization for %1 !"/>
+		</message>
+		<message>
+			<data id='87' type='error'/>
+			<en text="User %1 belongs to no group !"/>
+			<de text="Benutzer %1 gehört zu keiner Gruppe !"/>
+			<fr text="L'utilisateur %1 appartient à aucun groupe !"/>
+			<sp text="El usuario %1 pertenece a ningún grupo !"/>
+			<it text="L'operatore %1 non appartiene a nessuno gruppo !"/>
+			<usr text="User %1 belongs to no group ! !"/>
+		</message>
+		<message>
+			<data id='88' type='error'/>
+			<en text="Not allowed locking active User Account"/>
+			<de text="Sperren eines aktiven Benutzerkontos ist nicht erlaubt"/>
+			<fr text="Il nest pas permi de bloquer un compte d'utilisateur actif"/>
+			<sp text="Bloquear una cuenta de un usuario activo no es permitido"/>
+			<it text="Non è possibile bloccare l'utente attivo"/>
+			<usr text="Not allowed locking active User Account"/>
+		</message>
+		<message>
+			<data id='89' type='error'/>
+			<en text="Protected or invalid path defined (%1) !"/>
+			<de text="Geschützter oder unerlaubter Pfad definiert (%1) !"/>
+			<fr text="Chemin protégé ou inadmissible défini (%1) !"/>
+			<sp text="Trayectoria protegida o invÃ¡lida definida (%1) !"/>
+			<it text="Cartella protetta o non valida (%1) !"/>
+			<usr text="Protected or invalid path defined (%1) !"/>
+		</message>
+		<message>
+			<data id='90' type='error'/>
+			<en text="Invalid value ranges defined"/>
+			<de text="Unerlaubte Wertbereiche definiert"/>
+			<fr text="Valeur incorrecte plages définies"/>
+			<sp text="Valor no válido rangos definidos"/>
+			<it text="Valori limiti non validi"/>
+			<usr text="Invalid value ranges defined"/>
+		</message>
+		<message>
+			<data id='91' type='error'/>
+			<en text="Not all values are synchronized yet"/>
+			<de text="Es sind noch nicht alle Werte synchronisiert"/>
+			<fr text="Pourtant toutes les valeurs ne sont pas synchronisées"/>
+			<sp text="Con todo todos los valores no se sincronizan"/>
+			<it text="Non tutte le variabili sono sincronizzate"/>
+			<usr text="Not all values are synchronized yet"/>
+		</message>
+		<message>
+			<data id='92' type='error'/>
+			<en text="Colour depth on target display doesn't correspond with project settings"/>
+			<de text="Projektierte Farbtiefe stimmt nicht mit der Display-Einstellung überein"/>
+			<fr text="L’intensité de la couleur sur le système cible ne correspond pas avec les paramètres du projet"/>
+			<sp text="La profundidad de color proyectado no corresponde con los ajustes de la pantalla"/>
+			<it text="La profondità di colore proggetata non corrisponde con l'impostazione del display"/>
+			<usr text="Colour depth on target display doesn't correspond with project settings"/>
+		</message>   
+		<message>
+			<data id='93' type='error'/>
+			<en text="Can't save recipe with empty name !"/>
+			<de text="Kann Rezept mit leerem Namen nicht speichern !"/>
+			<fr text="Impossible d'enregistrer recette avec nom vide !"/>
+			<sp text="No se puede guardar la receta con el nombre de vacío !"/>
+			<it text="Impossibile salvare ricetta con nome nullo !"/>
+			<usr text="Can't save recipe with empty name !"/>
+		</message>   
+		<message>
+			<data id='94' type='error'/>
+			<en text="The recipe name '%1' already exist ! Choose another name."/>
+			<de text="Der Rezeptname '%1' besteht bereits ! Wählen Sie einen anderen Namen."/>
+			<fr text="Le nom de la recette '%1' existe déjà ! Choisissez un autre nom"/>
+			<sp text="El nombre de la receta '%1' ya existe ! Elegir otro nombre."/>
+			<it text="Il nome della ricetta '%1' esistente ! Scegliere un altro nome"/>
+			<usr text="The recipe name '%1' already exist ! Choose another name."/>
+		</message>   
+	</systemmessages>
+</systemdata>

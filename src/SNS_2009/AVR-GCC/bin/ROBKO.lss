@@ -1,0 +1,546 @@
+
+ROBKO.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000031c  00000000  00000000  00000094  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000010  00800060  0000031c  000003b0  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000018  00800070  00800070  000003c0  2**0
+                  ALLOC
+  3 .noinit       00000000  00800088  00800088  000003c0  2**0
+                  CONTENTS
+  4 .eeprom       00000000  00810000  00810000  000003c0  2**0
+                  CONTENTS
+  5 .debug_aranges 00000014  00000000  00000000  000003c0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 0000005a  00000000  00000000  000003d4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   000002b6  00000000  00000000  0000042e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 00000142  00000000  00000000  000006e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   000001fe  00000000  00000000  00000826  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000148  00000000  00000000  00000a24  2**0
+                  CONTENTS, READONLY, DEBUGGING
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54
+   4:	0c 94 45 00 	jmp	0x8a
+   8:	0c 94 45 00 	jmp	0x8a
+   c:	0c 94 45 00 	jmp	0x8a
+  10:	0c 94 45 00 	jmp	0x8a
+  14:	0c 94 45 00 	jmp	0x8a
+  18:	0c 94 45 00 	jmp	0x8a
+  1c:	0c 94 ce 00 	jmp	0x19c
+  20:	0c 94 45 00 	jmp	0x8a
+  24:	0c 94 45 00 	jmp	0x8a
+  28:	0c 94 45 00 	jmp	0x8a
+  2c:	0c 94 45 00 	jmp	0x8a
+  30:	0c 94 45 00 	jmp	0x8a
+  34:	0c 94 45 00 	jmp	0x8a
+  38:	0c 94 45 00 	jmp	0x8a
+  3c:	0c 94 45 00 	jmp	0x8a
+  40:	0c 94 45 00 	jmp	0x8a
+  44:	0c 94 45 00 	jmp	0x8a
+  48:	0c 94 45 00 	jmp	0x8a
+  4c:	0c 94 45 00 	jmp	0x8a
+  50:	0c 94 45 00 	jmp	0x8a
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ec e1       	ldi	r30, 0x1C	; 28
+  68:	f3 e0       	ldi	r31, 0x03	; 3
+  6a:	02 c0       	rjmp	.+4      	; 0x70
+
+0000006c <.do_copy_data_loop>:
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+  70:	a0 37       	cpi	r26, 0x70	; 112
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	a0 e7       	ldi	r26, 0x70	; 112
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a8 38       	cpi	r26, 0x88	; 136
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e
+  86:	0c 94 75 00 	jmp	0xea
+
+0000008a <__bad_interrupt>:
+  8a:	0c 94 00 00 	jmp	0x0
+
+0000008e <setRobko01Position>:
+	unsigned int step;
+} ROBKO_MOTOR_POSITION;
+
+void setRobko01Position(ROBKO_MOTOR_POSITION arrMotors[], int lenght)
+{
+  8e:	cf 93       	push	r28
+  90:	df 93       	push	r29
+	unsigned int i;
+
+	for(i=0; i<lenght; i++) {
+  92:	20 e0       	ldi	r18, 0x00	; 0
+  94:	30 e0       	ldi	r19, 0x00	; 0
+  96:	26 17       	cp	r18, r22
+  98:	37 07       	cpc	r19, r23
+  9a:	20 f5       	brcc	.+72     	; 0xe4
+  9c:	dc 01       	movw	r26, r24
+  9e:	8c 91       	ld	r24, X
+  a0:	e8 2f       	mov	r30, r24
+  a2:	ff 27       	eor	r31, r31
+  a4:	ee 0f       	add	r30, r30
+  a6:	ff 1f       	adc	r31, r31
+  a8:	ee 0f       	add	r30, r30
+  aa:	ff 1f       	adc	r31, r31
+  ac:	e0 59       	subi	r30, 0x90	; 144
+  ae:	ff 4f       	sbci	r31, 0xFF	; 255
+		while(arrMotor[arrMotors[i].motor].step);
+  b0:	80 81       	ld	r24, Z
+  b2:	91 81       	ldd	r25, Z+1	; 0x01
+  b4:	89 2b       	or	r24, r25
+  b6:	e1 f7       	brne	.-8      	; 0xb0
+		arrMotor[arrMotors[i].motor].step = arrMotors[i].step;
+  b8:	ed 01       	movw	r28, r26
+  ba:	8a 81       	ldd	r24, Y+2	; 0x02
+  bc:	9b 81       	ldd	r25, Y+3	; 0x03
+  be:	80 83       	st	Z, r24
+  c0:	91 83       	std	Z+1, r25	; 0x01
+		arrMotor[arrMotors[i].motor].direction = arrMotors[i].direction;
+  c2:	8c 91       	ld	r24, X
+  c4:	e8 2f       	mov	r30, r24
+  c6:	ff 27       	eor	r31, r31
+  c8:	ee 0f       	add	r30, r30
+  ca:	ff 1f       	adc	r31, r31
+  cc:	ee 0f       	add	r30, r30
+  ce:	ff 1f       	adc	r31, r31
+  d0:	e0 59       	subi	r30, 0x90	; 144
+  d2:	ff 4f       	sbci	r31, 0xFF	; 255
+  d4:	89 81       	ldd	r24, Y+1	; 0x01
+  d6:	82 83       	std	Z+2, r24	; 0x02
+  d8:	2f 5f       	subi	r18, 0xFF	; 255
+  da:	3f 4f       	sbci	r19, 0xFF	; 255
+  dc:	14 96       	adiw	r26, 0x04	; 4
+  de:	26 17       	cp	r18, r22
+  e0:	37 07       	cpc	r19, r23
+  e2:	e8 f2       	brcs	.-70     	; 0x9e
+  e4:	df 91       	pop	r29
+  e6:	cf 91       	pop	r28
+  e8:	08 95       	ret
+
+000000ea <main>:
+	}
+}
+
+//#define DEBUG
+
+int main(void)
+{
+  ea:	c7 e5       	ldi	r28, 0x57	; 87
+  ec:	d8 e0       	ldi	r29, 0x08	; 8
+  ee:	de bf       	out	0x3e, r29	; 62
+  f0:	cd bf       	out	0x3d, r28	; 61
+	unsigned char i = 0;
+  f2:	10 e0       	ldi	r17, 0x00	; 0
+	ROBKO_MOTOR_POSITION arrMotors[] = {
+  f4:	88 e0       	ldi	r24, 0x08	; 8
+  f6:	a8 e6       	ldi	r26, 0x68	; 104
+  f8:	b0 e0       	ldi	r27, 0x00	; 0
+  fa:	fe 01       	movw	r30, r28
+  fc:	31 96       	adiw	r30, 0x01	; 1
+  fe:	0d 90       	ld	r0, X+
+ 100:	01 92       	st	Z+, r0
+ 102:	8a 95       	dec	r24
+ 104:	e1 f7       	brne	.-8      	; 0xfe
+		{ 2, 0, 1000},
+		{ 2, 1, 1000},
+	};
+	
+	DDRA = DDRB = DDRC = 0xff;
+ 106:	8f ef       	ldi	r24, 0xFF	; 255
+ 108:	84 bb       	out	0x14, r24	; 20
+ 10a:	84 b3       	in	r24, 0x14	; 20
+ 10c:	87 bb       	out	0x17, r24	; 23
+ 10e:	87 b3       	in	r24, 0x17	; 23
+ 110:	8a bb       	out	0x1a, r24	; 26
+	memset(&arrMotor, 0, sizeof(arrMotor));
+ 112:	48 e1       	ldi	r20, 0x18	; 24
+ 114:	50 e0       	ldi	r21, 0x00	; 0
+ 116:	60 e0       	ldi	r22, 0x00	; 0
+ 118:	70 e0       	ldi	r23, 0x00	; 0
+ 11a:	80 e7       	ldi	r24, 0x70	; 112
+ 11c:	90 e0       	ldi	r25, 0x00	; 0
+ 11e:	0e 94 87 01 	call	0x30e
+
+#ifndef DEBUG
+	// 1us = 1.085
+	OCR1AH = 3333>>8;
+ 122:	8d e0       	ldi	r24, 0x0D	; 13
+ 124:	8b bd       	out	0x2b, r24	; 43
+	OCR1AL = (unsigned char)3333;
+ 126:	85 e0       	ldi	r24, 0x05	; 5
+ 128:	8a bd       	out	0x2a, r24	; 42
+#else
+	OCR1AH = 33>>8;
+	OCR1AL = (unsigned char)33;
+#endif
+
+	TCNT1 = 0;
+ 12a:	1d bc       	out	0x2d, r1	; 45
+ 12c:	1c bc       	out	0x2c, r1	; 44
+	TIMSK = 1<<OCIE1A;
+ 12e:	80 e1       	ldi	r24, 0x10	; 16
+ 130:	89 bf       	out	0x39, r24	; 57
+	TCCR1B = 1<<CS11;
+ 132:	82 e0       	ldi	r24, 0x02	; 2
+ 134:	8e bd       	out	0x2e, r24	; 46
+
+#ifdef DEBUG
+	arrMotor[0].step = 1111;
+	arrMotor[0].direction = 1;
+#endif
+
+	sei();
+ 136:	78 94       	sei
+ 138:	21 e0       	ldi	r18, 0x01	; 1
+ 13a:	30 e0       	ldi	r19, 0x00	; 0
+ 13c:	a0 e0       	ldi	r26, 0x00	; 0
+ 13e:	b0 e0       	ldi	r27, 0x00	; 0
+	while(1) {
+		/*
+		while(arrMotor[2].step);
+		arrMotor[2].step = 100;
+		arrMotor[2].direction = 0;
+		while(arrMotor[2].step);
+		arrMotor[2].step = 100;
+		arrMotor[2].direction = 1;
+		*/
+
+		if(PIND & 1<<PD4) {
+ 140:	84 9b       	sbis	0x10, 4	; 16
+ 142:	0f c0       	rjmp	.+30     	; 0x162
+			if(!arrMotor[i].step) arrMotor[i].step = 1;
+ 144:	e1 2f       	mov	r30, r17
+ 146:	ff 27       	eor	r31, r31
+ 148:	ee 0f       	add	r30, r30
+ 14a:	ff 1f       	adc	r31, r31
+ 14c:	ee 0f       	add	r30, r30
+ 14e:	ff 1f       	adc	r31, r31
+ 150:	e0 59       	subi	r30, 0x90	; 144
+ 152:	ff 4f       	sbci	r31, 0xFF	; 255
+ 154:	80 81       	ld	r24, Z
+ 156:	91 81       	ldd	r25, Z+1	; 0x01
+ 158:	89 2b       	or	r24, r25
+ 15a:	11 f4       	brne	.+4      	; 0x160
+ 15c:	20 83       	st	Z, r18
+ 15e:	31 83       	std	Z+1, r19	; 0x01
+			arrMotor[i].direction = 0;
+ 160:	12 82       	std	Z+2, r1	; 0x02
+		}
+
+		if(PIND & 1<<PD5) {
+ 162:	85 9b       	sbis	0x10, 5	; 16
+ 164:	09 c0       	rjmp	.+18     	; 0x178
+ */
+static __inline__ void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 166:	cd 01       	movw	r24, r26
+ 168:	01 97       	sbiw	r24, 0x01	; 1
+ 16a:	f1 f7       	brne	.-4      	; 0x168
+			_delay_ms(255);
+
+			if(++i > sizeof(arrMotor)/sizeof(*arrMotor) - 1) i = 0;
+ 16c:	1f 5f       	subi	r17, 0xFF	; 255
+ 16e:	16 30       	cpi	r17, 0x06	; 6
+ 170:	08 f0       	brcs	.+2      	; 0x174
+ 172:	10 e0       	ldi	r17, 0x00	; 0
+
+			while(PIND & 1<<PD5);
+ 174:	85 99       	sbic	0x10, 5	; 16
+ 176:	fe cf       	rjmp	.-4      	; 0x174
+		}
+
+		if(PIND & 1<<PD6) {
+ 178:	86 9b       	sbis	0x10, 6	; 16
+ 17a:	e2 cf       	rjmp	.-60     	; 0x140
+			if(!arrMotor[i].step) arrMotor[i].step = 1;
+ 17c:	e1 2f       	mov	r30, r17
+ 17e:	ff 27       	eor	r31, r31
+ 180:	ee 0f       	add	r30, r30
+ 182:	ff 1f       	adc	r31, r31
+ 184:	ee 0f       	add	r30, r30
+ 186:	ff 1f       	adc	r31, r31
+ 188:	e0 59       	subi	r30, 0x90	; 144
+ 18a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 18c:	80 81       	ld	r24, Z
+ 18e:	91 81       	ldd	r25, Z+1	; 0x01
+ 190:	89 2b       	or	r24, r25
+ 192:	11 f4       	brne	.+4      	; 0x198
+ 194:	20 83       	st	Z, r18
+ 196:	31 83       	std	Z+1, r19	; 0x01
+			arrMotor[i].direction = 1;
+ 198:	22 83       	std	Z+2, r18	; 0x02
+ 19a:	d2 cf       	rjmp	.-92     	; 0x140
+
+0000019c <__vector_7>:
+		}
+	}
+
+	return 0;
+}
+
+INTERRUPT(SIG_OUTPUT_COMPARE1A)
+{
+ 19c:	78 94       	sei
+ 19e:	1f 92       	push	r1
+ 1a0:	0f 92       	push	r0
+ 1a2:	0f b6       	in	r0, 0x3f	; 63
+ 1a4:	0f 92       	push	r0
+ 1a6:	11 24       	eor	r1, r1
+ 1a8:	2f 93       	push	r18
+ 1aa:	3f 93       	push	r19
+ 1ac:	4f 93       	push	r20
+ 1ae:	5f 93       	push	r21
+ 1b0:	6f 93       	push	r22
+ 1b2:	7f 93       	push	r23
+ 1b4:	8f 93       	push	r24
+ 1b6:	9f 93       	push	r25
+ 1b8:	af 93       	push	r26
+ 1ba:	bf 93       	push	r27
+ 1bc:	ef 93       	push	r30
+ 1be:	ff 93       	push	r31
+	unsigned char i;
+	unsigned char newPorta = 0, newPortb =0, newPortc = 0;
+ 1c0:	40 e0       	ldi	r20, 0x00	; 0
+ 1c2:	54 2f       	mov	r21, r20
+ 1c4:	64 2f       	mov	r22, r20
+
+	TCNT1 = 0;
+ 1c6:	1d bc       	out	0x2d, r1	; 45
+ 1c8:	1c bc       	out	0x2c, r1	; 44
+ 1ca:	a0 e7       	ldi	r26, 0x70	; 112
+ 1cc:	b0 e0       	ldi	r27, 0x00	; 0
+ 1ce:	20 e0       	ldi	r18, 0x00	; 0
+ 1d0:	30 e0       	ldi	r19, 0x00	; 0
+ 1d2:	75 e0       	ldi	r23, 0x05	; 5
+
+	for(i=0; i<sizeof(arrMotor)/sizeof(*arrMotor); i++) {
+
+		if(arrMotor[i].step) {
+ 1d4:	8d 91       	ld	r24, X+
+ 1d6:	9c 91       	ld	r25, X
+ 1d8:	11 97       	sbiw	r26, 0x01	; 1
+ 1da:	89 2b       	or	r24, r25
+ 1dc:	09 f4       	brne	.+2      	; 0x1e0
+ 1de:	7d c0       	rjmp	.+250    	; 0x2da
+			switch(i) {
+ 1e0:	22 30       	cpi	r18, 0x02	; 2
+ 1e2:	31 05       	cpc	r19, r1
+ 1e4:	69 f1       	breq	.+90     	; 0x240
+ 1e6:	23 30       	cpi	r18, 0x03	; 3
+ 1e8:	31 05       	cpc	r19, r1
+ 1ea:	3c f4       	brge	.+14     	; 0x1fa
+ 1ec:	21 15       	cp	r18, r1
+ 1ee:	31 05       	cpc	r19, r1
+ 1f0:	71 f0       	breq	.+28     	; 0x20e
+ 1f2:	21 30       	cpi	r18, 0x01	; 1
+ 1f4:	31 05       	cpc	r19, r1
+ 1f6:	99 f0       	breq	.+38     	; 0x21e
+ 1f8:	54 c0       	rjmp	.+168    	; 0x2a2
+ 1fa:	24 30       	cpi	r18, 0x04	; 4
+ 1fc:	31 05       	cpc	r19, r1
+ 1fe:	c9 f1       	breq	.+114    	; 0x272
+ 200:	24 30       	cpi	r18, 0x04	; 4
+ 202:	31 05       	cpc	r19, r1
+ 204:	2c f1       	brlt	.+74     	; 0x250
+ 206:	25 30       	cpi	r18, 0x05	; 5
+ 208:	31 05       	cpc	r19, r1
+ 20a:	d9 f1       	breq	.+118    	; 0x282
+ 20c:	4a c0       	rjmp	.+148    	; 0x2a2
+			case 0: newPorta |= arrStep[arrMotor[i].state]; break;
+ 20e:	80 91 73 00 	lds	r24, 0x0073
+ 212:	e8 2f       	mov	r30, r24
+ 214:	ff 27       	eor	r31, r31
+ 216:	e0 5a       	subi	r30, 0xA0	; 160
+ 218:	ff 4f       	sbci	r31, 0xFF	; 255
+ 21a:	80 81       	ld	r24, Z
+ 21c:	0f c0       	rjmp	.+30     	; 0x23c
+			case 1: newPorta |= arrStep[arrMotor[i].state]<<4; break;
+ 21e:	80 91 77 00 	lds	r24, 0x0077
+ 222:	e8 2f       	mov	r30, r24
+ 224:	ff 27       	eor	r31, r31
+ 226:	e0 5a       	subi	r30, 0xA0	; 160
+ 228:	ff 4f       	sbci	r31, 0xFF	; 255
+ 22a:	80 81       	ld	r24, Z
+ 22c:	99 27       	eor	r25, r25
+ 22e:	87 fd       	sbrc	r24, 7
+ 230:	90 95       	com	r25
+ 232:	e4 e0       	ldi	r30, 0x04	; 4
+ 234:	88 0f       	add	r24, r24
+ 236:	99 1f       	adc	r25, r25
+ 238:	ea 95       	dec	r30
+ 23a:	e1 f7       	brne	.-8      	; 0x234
+ 23c:	58 2b       	or	r21, r24
+ 23e:	31 c0       	rjmp	.+98     	; 0x2a2
+			case 2: newPortb |= arrStep[arrMotor[i].state]; break;
+ 240:	80 91 7b 00 	lds	r24, 0x007B
+ 244:	e8 2f       	mov	r30, r24
+ 246:	ff 27       	eor	r31, r31
+ 248:	e0 5a       	subi	r30, 0xA0	; 160
+ 24a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 24c:	80 81       	ld	r24, Z
+ 24e:	0f c0       	rjmp	.+30     	; 0x26e
+			case 3: newPortb |= arrStep[arrMotor[i].state]<<4; break;
+ 250:	fd 01       	movw	r30, r26
+ 252:	83 81       	ldd	r24, Z+3	; 0x03
+ 254:	e8 2f       	mov	r30, r24
+ 256:	ff 27       	eor	r31, r31
+ 258:	e0 5a       	subi	r30, 0xA0	; 160
+ 25a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 25c:	80 81       	ld	r24, Z
+ 25e:	99 27       	eor	r25, r25
+ 260:	87 fd       	sbrc	r24, 7
+ 262:	90 95       	com	r25
+ 264:	f4 e0       	ldi	r31, 0x04	; 4
+ 266:	88 0f       	add	r24, r24
+ 268:	99 1f       	adc	r25, r25
+ 26a:	fa 95       	dec	r31
+ 26c:	e1 f7       	brne	.-8      	; 0x266
+ 26e:	48 2b       	or	r20, r24
+ 270:	18 c0       	rjmp	.+48     	; 0x2a2
+			case 4: newPortc |= arrStep[arrMotor[i].state]; break;
+ 272:	80 91 83 00 	lds	r24, 0x0083
+ 276:	e8 2f       	mov	r30, r24
+ 278:	ff 27       	eor	r31, r31
+ 27a:	e0 5a       	subi	r30, 0xA0	; 160
+ 27c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 27e:	80 81       	ld	r24, Z
+ 280:	0f c0       	rjmp	.+30     	; 0x2a0
+			case 5: newPortc |= arrStep[arrMotor[i].state]<<4;
+ 282:	80 91 87 00 	lds	r24, 0x0087
+ 286:	e8 2f       	mov	r30, r24
+ 288:	ff 27       	eor	r31, r31
+ 28a:	e0 5a       	subi	r30, 0xA0	; 160
+ 28c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 28e:	80 81       	ld	r24, Z
+ 290:	99 27       	eor	r25, r25
+ 292:	87 fd       	sbrc	r24, 7
+ 294:	90 95       	com	r25
+ 296:	e4 e0       	ldi	r30, 0x04	; 4
+ 298:	88 0f       	add	r24, r24
+ 29a:	99 1f       	adc	r25, r25
+ 29c:	ea 95       	dec	r30
+ 29e:	e1 f7       	brne	.-8      	; 0x298
+ 2a0:	68 2b       	or	r22, r24
+			}			
+			
+			if(arrMotor[i].direction) {
+ 2a2:	fd 01       	movw	r30, r26
+ 2a4:	82 81       	ldd	r24, Z+2	; 0x02
+ 2a6:	88 23       	and	r24, r24
+ 2a8:	41 f0       	breq	.+16     	; 0x2ba
+				if(++arrMotor[i].state > sizeof(arrStep)-1) {
+ 2aa:	83 81       	ldd	r24, Z+3	; 0x03
+ 2ac:	8f 5f       	subi	r24, 0xFF	; 255
+ 2ae:	83 83       	std	Z+3, r24	; 0x03
+ 2b0:	83 81       	ldd	r24, Z+3	; 0x03
+ 2b2:	88 30       	cpi	r24, 0x08	; 8
+ 2b4:	90 f0       	brcs	.+36     	; 0x2da
+					arrMotor[i].state = 0;
+ 2b6:	13 82       	std	Z+3, r1	; 0x03
+ 2b8:	09 c0       	rjmp	.+18     	; 0x2cc
+					--arrMotor[i].step;
+				}
+			} else {
+				if((char)arrMotor[i].state-- < 1) {
+ 2ba:	fd 01       	movw	r30, r26
+ 2bc:	83 81       	ldd	r24, Z+3	; 0x03
+ 2be:	98 2f       	mov	r25, r24
+ 2c0:	81 50       	subi	r24, 0x01	; 1
+ 2c2:	83 83       	std	Z+3, r24	; 0x03
+ 2c4:	19 16       	cp	r1, r25
+ 2c6:	4c f0       	brlt	.+18     	; 0x2da
+					arrMotor[i].state = sizeof(arrStep)-1;
+ 2c8:	87 e0       	ldi	r24, 0x07	; 7
+ 2ca:	83 83       	std	Z+3, r24	; 0x03
+					--arrMotor[i].step;
+ 2cc:	8d 91       	ld	r24, X+
+ 2ce:	9c 91       	ld	r25, X
+ 2d0:	11 97       	sbiw	r26, 0x01	; 1
+ 2d2:	01 97       	sbiw	r24, 0x01	; 1
+ 2d4:	8d 93       	st	X+, r24
+ 2d6:	9c 93       	st	X, r25
+ 2d8:	11 97       	sbiw	r26, 0x01	; 1
+ 2da:	71 50       	subi	r23, 0x01	; 1
+ 2dc:	2f 5f       	subi	r18, 0xFF	; 255
+ 2de:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2e0:	14 96       	adiw	r26, 0x04	; 4
+ 2e2:	77 ff       	sbrs	r23, 7
+ 2e4:	77 cf       	rjmp	.-274    	; 0x1d4
+				}
+			}
+		}
+	}
+
+	PORTA = newPorta;
+ 2e6:	5b bb       	out	0x1b, r21	; 27
+	PORTB = newPortb;
+ 2e8:	48 bb       	out	0x18, r20	; 24
+	PORTC = newPortc;
+ 2ea:	65 bb       	out	0x15, r22	; 21
+ 2ec:	ff 91       	pop	r31
+ 2ee:	ef 91       	pop	r30
+ 2f0:	bf 91       	pop	r27
+ 2f2:	af 91       	pop	r26
+ 2f4:	9f 91       	pop	r25
+ 2f6:	8f 91       	pop	r24
+ 2f8:	7f 91       	pop	r23
+ 2fa:	6f 91       	pop	r22
+ 2fc:	5f 91       	pop	r21
+ 2fe:	4f 91       	pop	r20
+ 300:	3f 91       	pop	r19
+ 302:	2f 91       	pop	r18
+ 304:	0f 90       	pop	r0
+ 306:	0f be       	out	0x3f, r0	; 63
+ 308:	0f 90       	pop	r0
+ 30a:	1f 90       	pop	r1
+ 30c:	18 95       	reti
+
+0000030e <memset>:
+ 30e:	dc 01       	movw	r26, r24
+ 310:	01 c0       	rjmp	.+2      	; 0x314
+
+00000312 <.memset_loop>:
+ 312:	6d 93       	st	X+, r22
+
+00000314 <.memset_start>:
+ 314:	41 50       	subi	r20, 0x01	; 1
+ 316:	50 40       	sbci	r21, 0x00	; 0
+ 318:	e0 f7       	brcc	.-8      	; 0x312
+ 31a:	08 95       	ret

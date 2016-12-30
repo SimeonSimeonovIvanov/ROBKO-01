@@ -1,0 +1,49 @@
+// ****************************************************
+// *** Printer Driver for Default Printer           ***
+// ****************************************************
+//
+// Description : S = General Settings
+//               I = Initialization
+//               G = Graphic Mode Settings
+//               R = Print Resolutions
+//               P = Printer Settings for Graphic Mode
+//
+// All parameters (excl. Sxx, Rxx) must be written in Hexadecimal
+// The text may not include the character ':'
+//
+#S00#  "Printer connected (0=Off/1=On)"         : 0
+#S01#  "Printer Baudrate"                       : 9600
+#S02#  "Print Speed (0= 1 line/s  >0= n char    : 0
+#S03#  "Print Multiple line (0=No 1=Yes)"       : 0
+#S04#  "Charakters per line"                    : 79
+#S05#  "Text column width in print form"        : 39
+#S06#  "Number column width in print form"      : 21
+#S07#  "Unit column width im print form"        : 17
+#S08#  "Printer Timeout [ms]"                   : 5000
+
+#I00#  "Send BEFORE printing"                   : 
+#I01#  "Send AFTER  printing"                   : 
+#I02#  "Printer Init"                           : 
+#I03#  "Printer Reset"                          : 
+#I04#  "Page Init Graphic mode"                 : 
+#I05#  "Form Feed"                              : 0C
+#I06#  "Line Feed"                              : 0A
+#I07#  "Carriage Return"                        : 0D
+#I08#  "Line Space text mode printing"          : 
+#I09#  "Line Space graphic text printing"       : 
+#I10#  "Line Space graphic image printing"      : 
+#I11#  "Page Init Text Mode"                    : 
+      
+#G00#  "Graphic End"                            : 
+#G01#  "Graphic Init (150DPI,1024 Pixel)"       : 
+#G02#  "Graphic Init (100DPI, 640 Pixel)"       : 
+#G03#  "Graphic Init ( 75DPI, 320 Pixel)"       : 
+
+#R01#  "Print Resolution (DPI, Pixel) of #G01#" : 150 1024
+#R02#  "Print Resolution (DPI, Pixel) of #G02#" : 100 640
+#R03#  "Print Resolution (DPI, Pixel) of #G03#" : 75 320
+
+#P00#  "Send Data in horizontal lines (1=Yes)"  : 
+#P01#  "Data bits per pixel (1..8)"             : 
+#P02#  "Color index printed black"              : 
+#P03#  "Graphic Mode supported (1=Yes)"         : 

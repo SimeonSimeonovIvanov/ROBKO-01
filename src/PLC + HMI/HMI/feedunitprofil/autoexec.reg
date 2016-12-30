@@ -1,0 +1,17 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Micro Innovation\GRS\Interface\Generic\0]
+"Baudrate"=dword:E100    ;Baud rate
+"ParameterA"=dword:0      ;Stop Bits (0=default,1,2)
+"ParameterB"=dword:1      ;Default Node
+"Parameter1"=dword:1      ;Address Offset
+"Parameter2"=dword:0      ;Parity (0=even,1=odd,2=none)
+[HKEY_LOCAL_MACHINE\SOFTWARE\Micro Innovation\GRS\Interface\Generic\0]
+"String1"="MI_02177D"      ;Node Name
+"String2"="PLC_Main"      ;Application
+[HKEY_LOCAL_MACHINE\SOFTWARE\Micro Innovation\GRS\Interface\Generic\0]
+"String1"="MI_02177D"      ;Node Name
+"String2"="PLC_Main"      ;Application
+[HKEY_LOCAL_MACHINE\SOFTWARE\Micro Innovation\GRS\Interface\Generic\0]
+"String1"="MI_02177D"      ;Node Name
+"String2"="PLC_Main"      ;Application

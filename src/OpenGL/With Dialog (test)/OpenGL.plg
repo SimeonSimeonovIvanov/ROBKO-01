@@ -1,0 +1,58 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: OpenGL - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x402 /fo"Debug/OpenGL.res" /d "_DEBUG" "E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\OpenGL.rc"" 
+Creating temporary file "C:\DOCUME~1\DooM_New\LOCALS~1\Temp\RSP679.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/OpenGL.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\arm.cpp"
+"E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\camera.cpp"
+"E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\OpenGL.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DooM_New\LOCALS~1\Temp\RSP679.tmp" 
+Creating temporary file "C:\DOCUME~1\DooM_New\LOCALS~1\Temp\RSP67A.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Fp"Debug/OpenGL.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\DooM_New\LOCALS~1\Temp\RSP67A.tmp" 
+Creating temporary file "C:\DOCUME~1\DooM_New\LOCALS~1\Temp\RSP67B.tmp" with contents
+[
+OPENGL32.LIB glut32.lib glui32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/OpenGL.pdb" /debug /machine:I386 /out:"Debug/OpenGL.exe" /pdbtype:sept 
+".\Debug\arm.obj"
+".\Debug\camera.obj"
+".\Debug\OpenGL.obj"
+".\Debug\StdAfx.obj"
+".\Debug\OpenGL.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\DooM_New\LOCALS~1\Temp\RSP67B.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+arm.cpp
+E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\arm.cpp(23) : warning C4309: 'initializing' : truncation of constant value
+E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\arm.cpp(23) : warning C4309: 'initializing' : truncation of constant value
+E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\arm.cpp(23) : warning C4309: 'initializing' : truncation of constant value
+E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\arm.cpp(25) : warning C4309: 'initializing' : truncation of constant value
+E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\arm.cpp(26) : warning C4309: 'initializing' : truncation of constant value
+E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\arm.cpp(26) : warning C4309: 'initializing' : truncation of constant value
+E:\Developments\Robotics\ROBKO 01\src\OpenGL\With Dialog (test)\arm.cpp(26) : warning C4309: 'initializing' : truncation of constant value
+camera.cpp
+OpenGL.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+OpenGL.exe - 0 error(s), 7 warning(s)
+</pre>
+</body>
+</html>

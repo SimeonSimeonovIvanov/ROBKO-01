@@ -1,0 +1,20 @@
+// **************************************************
+// *** PCL Printer Driver for HP Laserjet/Deskjet ***
+// **************************************************
+//
+//
+#D00#  "Paper size (0=A4, 1=B4, 2=B5, 3=Letter, 4=Legal)"    < 0 >
+#D01#  "Orientation (0=Portrait, 1=Landscape)"               < 0 >
+#D02#  "Left Margin in mm"                                   < 15 >
+#D03#  "Right Margin in mm"                                  < 20 >
+#D04#  "Top Margin in mm"                                    < 10 >
+#D05#  "Bottom Margin in mm"                                 < 25 >
+#D06#  "Color mode (0=b/w 1=color)"                          < 1 >
+#D07#  "Print resolution (0=draft, 1=high)"                  < 1 >
+#D08#  "Print Multiple line (0=No 1=Yes)"                    < 1 >
+#D09#  "Width of Text column [in %] in print form"           < 60 >
+#D10#  "Width of Number column [in %] in print form"         < 25 >
+#D11#  "Width of Unit column [in %] in print form"           < 15 >
+
+#T00#  "Printer driver name (standard: PCL Inkjet)"          < PCL Inkjet >
+#T01#  "Default Printer path (or f.e. LPT1: or COM1: 19200)" <  >

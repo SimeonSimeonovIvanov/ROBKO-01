@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<languagedata>
+	<fileversion major='1' minor='5'/>
+	<systemkeyboard path="de_CH"/>
+	<textprint mode="text" fontid='0' size='10' bold='0' italic='0' underline='0' strikeout='0'/>
+	<fonts>
+		<font id='0' fontname="Arial" filename="Arial.ttf" fontsizefactor='100'/>
+		<font id='1' fontname="Tahoma" filename="Tahoma.ttf" fontsizefactor='100'/>
+	</fonts>
+	<texts>
+		<standard>
+			<s0><![CDATA[]]></s0>
+			<s1><![CDATA[1]]></s1>
+			<s2><![CDATA[1]]></s2>
+			<s3><![CDATA[0]]></s3>
+			<s4><![CDATA[1]]></s4>
+			<s5><![CDATA[2]]></s5>
+			<s6><![CDATA[2]]></s6>
+			<s7><![CDATA[3]]></s7>
+			<s8><![CDATA[3]]></s8>
+			<s9><![CDATA[4]]></s9>
+			<s10><![CDATA[4]]></s10>
+			<s11><![CDATA[5]]></s11>
+			<s12><![CDATA[0]]></s12>
+			<s13><![CDATA[1]]></s13>
+			<s14><![CDATA[JOG+]]></s14>
+			<s15><![CDATA[JOG+]]></s15>
+			<s16><![CDATA[JOG-]]></s16>
+			<s17><![CDATA[JOG-]]></s17>
+			<s18><![CDATA[1]]></s18>
+			<s19><![CDATA[2]]></s19>
+			<s20><![CDATA[3]]></s20>
+			<s21><![CDATA[4]]></s21>
+			<s22><![CDATA[5]]></s22>
+			<s23><![CDATA[6]]></s23>
+			<s24><![CDATA[ROBKO 01]]></s24>
+			<s25><![CDATA[ROBKO 01]]></s25>
+			<s26><![CDATA[MAIN]]></s26>
+			<s27><![CDATA[MAIN]]></s27>
+			<s28><![CDATA[5]]></s28>
+			<s29><![CDATA[6]]></s29>
+			<s30><![CDATA[7]]></s30>
+			<s31><![CDATA[Set ZERO]]></s31>
+			<s32><![CDATA[Set ZERO]]></s32>
+			<s33><![CDATA[Set ZERO Pos]]></s33>
+			<s34><![CDATA[Set ZERO Pos]]></s34>
+			<s35><![CDATA[ROBKO 01 - G01]]></s35>
+			<s36><![CDATA[ROBKO 01 - G01]]></s36>
+			<s37><![CDATA[RUN G01]]></s37>
+			<s38><![CDATA[RUN G01]]></s38>
+			<s39><![CDATA[X]]></s39>
+			<s40><![CDATA[Y]]></s40>
+			<s41><![CDATA[Z]]></s41>
+			<s64><![CDATA[Enable BLINK for Qn:]]></s64>
+			<s71><![CDATA[Time LOW:]]></s71>
+			<s72><![CDATA[Time HIGH:]]></s72>
+		</standard>
+		<error>
+			<e0><![CDATA[]]></e0>
+		</error>
+		<help>
+			<h0><![CDATA[]]></h0>
+		</help>
+	</texts>
+</languagedata>

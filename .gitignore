@@ -52,3 +52,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+/src/v.0.0.0/FreeMODBUS/Master/Control Center/Debug/*
+/src/v.0.0.0/FreeMODBUS/Master/Control Center/ipch/*
+
+~/src/v.0.0.0/FreeMODBUS/Master/Control Center/Debug/com.exe

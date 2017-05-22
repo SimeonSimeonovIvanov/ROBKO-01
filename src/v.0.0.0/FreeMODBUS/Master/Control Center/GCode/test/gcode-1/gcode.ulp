@@ -1,0 +1,554 @@
+#usage "<h3><br>Export data for KCam or any other CNC software </h3><br>"
+"<br>"
+"- Bottom layer will be mirrored by Y AXIS<br>"
+"- It uses only G00, G01 and G02, even for drilling (G82 it's not backlash compensated in KCam)<br>"
+"- If you want holes with complicated shapes in board, use a polygon in dimension layer, with width of drill used to cut the board.<br>"
+"- If Drill is checked, all holes will be drilled.<br>"
+"- If Cut is checked, all holes (from pads, vias etc.) larger than cut_tool will be milled.<br>"
+"<br>- If you do not have a file called gcode.set next to this ulp, at first run, comment #include gcode.set and uncomment folowing definitions.<br>"
+"<br>"
+"<br>"
+"Things left to be implemented: *sort all elements for minimum travel time; *implement fill function<br>"
+"<br>"
+"<b>Author</b>: eSilviu<br>"
+"Work time: 3 nights<br>"
+
+//include... OR uncomment below (only at first run)
+#include "gcode.set"
+/*
+int 	mill_on	=1;
+int	fill_on	=1;
+real 	mill_tool	=0.5;
+real 	mill_down	=0.2;
+real 	mill_up	=0.2;
+real	mill_speed	=200;
+
+int 	drill_on	=1;
+real 	drill_down	=0.2;
+real 	drill_up	=0.2;
+real	drill_speed	=200;
+
+int 	cut_on	=1;
+real 	cut_depth	=2.5;
+int 	cut_steps	=2;
+real 	cut_gap	=3;
+real	cut_speed	=100;
+real	cut_tool	=1;
+real	cut_up	=1;
+
+real	tool_up	=30;
+int	layer		=-1;*/
+
+
+string Layers[] = {"Top","Bottom"};
+int Selected_layer;
+if (layer==1) Selected_layer=0;
+if (layer==-1) Selected_layer=1;
+
+string Steps[] = { "1", "2", "3", "4" };
+int Sel_Cut;
+Sel_Cut=cut_steps-1;
+
+int step_ulp = 1;
+string fileName;
+string OutlinesSignalName = "_OUTLINES_";
+string final_cmd;
+
+if (board) board(B) {fileName = filesetext(B.name, ".gc");}
+else {dlgMessageBox("\n    Start this ULP in a Board    \n"); exit (0);}
+
+//parameters passed to ulp at second run
+if (argv[1])
+{if (argv[2])
+	{mill_tool = strtod(argv[2]);
+	if (argv[3])
+		{layer = strtol(argv[3]);
+		if (argv[4])
+			{fileName = argv[4];
+				if(argv[5])
+					{step_ulp = 2;
+}}}}}			
+
+//*************************** Functions body ***************************
+  
+void write_real_param(string name, real value) 
+{  printf("real %s = %f;\n", name, value); } 
+  
+void write_int_param(string name, int value)
+{  printf("int %s = %d;\n", name, value); }  
+
+//error message if exist a signal named  _OUTLINES_
+void Fatal(string Message, string Details)
+{ dlgMessageBox(usage + "<hr><b>ERROR: " + Message + "</b><p>\n" + Details); exit(1); }
+
+//Z->up; stop; Z->0.00 (calibrate Z axis) Z->0.50, ready for start
+void DeviceChangeBit(void)
+{
+	/*output( fileName, "at" ) {
+		printf ("\nG00 Z%2.3f\n",tool_up);
+		printf ("G00 X0.000 Y0.000\n");
+		printf ("M00\n");
+		printf ("G00 Z0.000\n");
+		printf ("M00\n");		 
+		printf ("G00 Z0.500\n");
+		printf ("\n(Bit changed, zero set.)\n");
+	}*/
+}
+
+//create file for gcode output, write first lines
+void DeviceInit(void)
+{
+	/*output(fileName, "wt") {
+		printf ("(%s)\n(%s)\n(%s)\n", fileName, Layers[Selected_layer], t2string(time()));
+		
+		if (layer==-1)
+			printf ("(X/Y/Z home should be at upper left corner of the board, with the tip just touching board)\n");
+		else
+			printf ("(X/Y/Z home should be at lower left corner of the board, with the tip just touching board)\n");
+			
+		printf ("(Mm, Absolute mode, lift cutter above work, rapid to X/Y home, spindle on.)\n");
+		
+		printf ("G21\n");
+		printf ("G90\n");
+	}*/
+}  
+
+//write the necessary stuff for machine STOP
+void DeviceEnd(void)
+{
+	output(fileName, "at") {
+	//	printf("(Finished.)\n");
+	//	printf("G00 Z%.3f\n", tool_up);
+	//	printf("G01 Z%.3f\n", tool_up);
+	//	printf("M05\n");
+	//	printf("G00 X0 Y0\n");
+	//	printf("M30\n");
+	}
+}
+
+void CutDrillHole(real h_x, real h_y, real h_d, real tool, real cut_depth)
+{
+	real raza=(h_d-tool)/2;
+	real cut_down=0;
+
+	for (int i = 0; i<cut_steps; ++i) {
+		cut_down=cut_down+cut_depth/cut_steps;
+		
+		if (h_d > tool) {
+			printf("G00 X%.3f Y%.3f\n", h_x, (h_y+raza)*layer);
+			printf("G01 Z-%.3f F%.1f\n",cut_down, cut_speed);
+			printf("G02 X%.3f Y%.3f R%3f F%.1f\n", h_x+raza*layer, h_y*layer, raza, cut_speed);
+			printf("G02 X%.3f Y%.3f R%3f F%.1f\n", h_x, (h_y-raza)*layer, raza, cut_speed);
+			printf("G02 X%.3f Y%.3f R%3f F%.1f\n", h_x-raza*layer, h_y*layer, raza, cut_speed);
+			printf("G02 X%.3f Y%.3f R%3f F%.1f\n", h_x, (h_y+raza)*layer, raza, cut_speed);
+			printf("G00 Z%.3f\n\n", cut_up);
+		}
+	}
+}
+
+//add a hole to the output file
+void AddHole(int x, int y)
+{
+	real x_int, y_int;
+	x_int = u2mm(x);
+	y_int = u2mm(y);
+
+	printf("G00 X%.3f Y%.3f\n", x_int, y_int*layer);
+	printf("G01 Z-%.3f F%.1f\n", drill_down, cut_speed);
+	printf("G00 Z%.3f\n\n", drill_up);
+}
+
+//cut the board, as the wires in DIMENSION layer says; gap is used to keep board in place until end
+void DeviceCut(void)
+{
+	real a, b, c, d, gap1, gap2, cut_down, x_old=REAL_EPSILON, y_old=REAL_EPSILON;
+	gap1=(50-cut_gap/2)/100;
+	gap2=(50+cut_gap/2)/100;
+	cut_down=0;
+	
+	output(fileName, "at") {
+		printf("(Start cutting holes)\n");
+		
+		board(B) {
+			B.holes(H)  CutDrillHole(u2mm(H.x), u2mm(H.y), u2mm(H.drill), cut_tool, cut_depth);
+			B.signals(S) S.vias(V) CutDrillHole(u2mm(V.x),u2mm(V.y),u2mm(V.drill),cut_tool, cut_depth);
+			
+			B.elements(E) {
+				E.package.contacts(C) if (C.pad) CutDrillHole(u2mm(C.pad.x),u2mm(C.pad.y),u2mm(C.pad.drill),cut_tool, cut_depth);
+				E.package.holes(H) CutDrillHole(u2mm(H.x),u2mm(H.y),u2mm(H.drill),cut_tool, cut_depth);
+			}
+			
+			printf("(Start cutting polygons)\n");	
+			
+			for (int i = 0; i<cut_steps; ++i) {
+				cut_down=cut_down+cut_depth/cut_steps;
+				
+				B.polygons(P) {
+					int x_0, y_0, first_p = 1;
+					
+					P.contours(W) {
+						
+						if (W.layer == LAYER_DIMENSION) {
+							if (first_p) {
+								x_0 = W.x1; y_0 = W.y1;
+								
+								printf("G00 X%.3f Y%.3f\n", u2mm(x_0), layer*u2mm(y_0));
+								printf("G01 Z-%.3f F%.1f\n",cut_down, cut_speed);
+								
+								first_p = 0;
+							}
+							
+							printf("G01 X%.3f Y%.3f F%.1f\n", u2mm(W.x1), layer*u2mm(W.y1), cut_speed);
+							
+							if (W.x2 == x_0 && W.y2 == y_0) {
+								first_p = 1;
+								printf("G01 X%.3f Y%.3f F%.1f\n", u2mm(W.x2), layer*u2mm(W.y2), cut_speed);
+								printf("G00 Z%.3f\n\n", cut_up);
+							}
+						}
+					}
+				}
+				
+				printf("(Start cutting wires)\n");
+				
+				B.wires(W) {
+					
+					if(W.layer == LAYER_DIMENSION) {
+						if ((pow(abs(u2mm(W.x1)-x_old),2)+pow(abs(u2mm(W.y1)-y_old),2))>=(pow(abs(u2mm(W.x2)-x_old),2)+pow(abs(u2mm(W.y2)-y_old),2))) {
+							a=u2mm(W.x2); b=u2mm(W.y2); c=u2mm(W.x1); d=u2mm(W.y1);
+						} else {
+							a=u2mm(W.x1); b=u2mm(W.y1); c=u2mm(W.x2); d=u2mm(W.y2);
+						};
+						
+						printf("(x_old=%.3f; X=%.3f; y_old=%.3f; Y=%.3f)",x_old, a, y_old, b);
+						
+						if ((x_old==a)&&(y_old==b)) {
+							printf("G01 Z-%.3f F%.1f\n",cut_down, cut_speed);
+						} else {
+							printf("G00 Z%.3f\n\n", cut_up);
+							printf("G00 X%.3f Y%.3f\n", a, b*layer);
+							printf("G01 Z-%.3f F%.1f\n",cut_down, cut_speed);
+						};
+
+						if (abs(a-c)>=10 || abs(b-d)>=10) {
+							printf("G01 X%.3f Y%.3f F%.1f\n", a+(c-a)*gap1, (b+(d-b)*gap1)*layer, cut_speed);
+							printf("G00 Z%.3f\n", cut_up);
+							printf("G00 X%.3f Y%.3f\n", a+(c-a)*gap2, (b+(d-b)*gap2)*layer);
+							printf("G01 Z-%.3f F%.1f\n",cut_down, cut_speed);
+						}
+						
+						printf("G01 X%.3f Y%.3f F%.1f\n", c, d*layer, cut_speed);
+						x_old=c; y_old=d;
+					}
+				}
+				
+				printf("G00 Z%.3f\n\n", cut_up);
+			}
+		}
+	}
+}
+
+//function that reads drill positions and call AddHole() function
+void DeviceDrill(void)
+{
+	/*output(fileName, "at") {
+		printf("(Start drilling)\n");
+		
+		board(B) {
+			printf("G00 Z%.3f\n", drill_up);
+		
+			B.holes(H) AddHole(H.x, H.y);
+			B.signals(S) S.vias(V) AddHole(V.x, V.y);
+			B.elements(E) {
+				E.package.contacts(C) {
+					if(C.pad)
+						AddHole(C.pad.x, C.pad.y);
+				}
+				E.package.holes(H) AddHole(H.x, H.y);
+			}
+		}
+	}*/
+}
+
+//function that create a single poligon on selected layer
+void GenerateOutlines(void)
+{  board(B) {
+    real f = 0.1, 
+         x1 = u2mm(B.area.x1) - f, y1 = u2mm(B.area.y1) - f,
+         x2 = u2mm(B.area.x2) + f, y2 = u2mm(B.area.y2) + f;
+    B.signals(S) {
+      if (S.name == OutlinesSignalName)
+         Fatal("There is already a signal named " + OutlinesSignalName + " in this board!", "Please make sure that there is no such signal in this board.");
+      }
+	step_ulp=2; 
+    string Cmd;
+	int displ_;
+	if (layer ==1) displ_=1;
+	if (layer ==-1) displ_=16;
+    sprintf(Cmd, "grid mm;\n"
+                 "window fit;\n"
+                 "change isolate 0;\n"
+                 "change rank 6;\n"
+                 "change pour solid;\n"
+                 "change orphans on;\n"
+				 "SET WIRE_BEND 2;\n"
+                 "layer %d;\n"
+                 "polygon %s %f (%f %f) (%f %f) (%f %f) (%f %f) (%f %f);\n"
+                 "ratsnest;\n"
+                 "run '%s' argv[1] '%f' '%d' '%s' '%d';",
+                 displ_,
+                 OutlinesSignalName, mill_tool, x1, y1, x2, y1, x2, y2, x1, y2, x1, y1,
+                 argv[0],  mill_tool, layer, fileName, step_ulp);	 
+	exit(Cmd);
+    }
+}
+
+//function that write outlines in output file 
+void DeviceDraw(int x1, int y1, int x2, int y2, int state_mill)
+{
+	if (state_mill == 0) {
+		printf("G01 Z%.3f\n\n",mill_up);
+		printf("G01 X%.3f Y%.3f\n",u2mm(x1),layer*u2mm(y1));
+		printf("G01 Z%f F%.1f\n",mill_down, cut_speed);
+		printf("G01 X%.3f Y%.3f F%.1f\n",u2mm(x2), layer*u2mm(y2), cut_speed);
+	} else {
+		printf("G01 X%.3f Y%.3f F%.1f\n", u2mm(x2), layer*u2mm(y2), cut_speed);
+	}
+}
+
+//function that generate coordinates for outlines (it will be executed right after second run of the ulp)
+void WriteOutlines(void)
+{
+	output(fileName, "at") {
+	
+		board(B){
+			
+			B.signals(S) {
+
+				if (S.name == OutlinesSignalName) {
+				
+					S.polygons(P) {
+
+						int x1 = INT_MAX, y1 = INT_MAX, x2 = INT_MIN, y2 = INT_MIN;
+						int x0, y0, first = 1;
+
+						int FrameWire;
+						int State;
+
+						P.wires(W) {
+							x1 = min(x1, W.x1);
+							x2 = max(x2, W.x1);
+							y1 = min(y1, W.y1);
+							y2 = max(y2, W.y1);
+						}
+						
+						P.contours(W) {
+							if (first) {
+								x0 = W.x1;
+								
+								y0 = W.y1;
+								
+								FrameWire = (x1 == x0 || x2 == x0) && (y1 == y0 || y2 == y0);
+								
+								State = 0;
+								first = 0;
+							} else
+								if (W.x2 == x0 && W.y2 == y0) {
+									State = 2;
+									first = 1;
+								} else {
+									State = 1;
+								}
+							
+							//printf("\nState: %d\tfirst: %d\n", State, first );
+
+							if (!FrameWire) {
+								DeviceDraw(W.x1, W.y1, W.x2, W.y2, State);
+							}
+						}
+
+						sprintf(final_cmd, "delete (%f %f) (%f %f); window fit;\n", u2mm(x1), u2mm(y1), u2mm(x2), u2mm(y2));
+					}
+
+					break;
+				}
+			}
+		}
+	}
+}
+
+void Fill(void)
+{real old_x=REAL_EPSILON, old_y=REAL_EPSILON, a, b, c, d;
+output(fileName, "at") {
+board(B){
+      B.signals(S) {
+        if (S.name == OutlinesSignalName) {
+           S.polygons(P) {
+		   int x1 = INT_MAX, y1 = INT_MAX, x2 = INT_MIN, y2 = INT_MIN;
+		   P.wires(W) {
+               x1 = min(x1, W.x1);
+               x2 = max(x2, W.x1);
+               y1 = min(y1, W.y1);
+               y2 = max(y2, W.y1);
+               }
+			printf("\nStart filling empty spaces\n");
+			P.fillings(W) {
+			 if ((pow(abs(W.x1-old_x),2)+pow(abs(W.y1-old_y),2))>=(pow(abs(W.x2-old_x),2)+pow(abs(W.y2-old_y),2)))
+						 {a=W.x2; b=W.y2; c=W.x1; d=W.y1;}
+					else {a=W.x1; b=W.y1; c=W.x2; d=W.y2;}
+				
+			DeviceDraw(a, b, c, d, 0);
+			old_x=c; old_y=d;	
+			 }
+			if (!mill_on) sprintf(final_cmd, "delete (%f %f) (%f %f); window fit;\n", u2mm(x1), u2mm(y1), u2mm(x2), u2mm(y2));
+			 }
+}}}}}
+
+
+
+//---------------------------------GRAPHICAL INTERFACE,  will appear only at first run of the ulp----------------------------------------------
+if (step_ulp==1)
+{	int Result = dlgDialog("Select Parameters")
+	{dlgHBoxLayout
+	
+	{dlgLabel("Layer: ");
+	dlgComboBox(Layers, Selected_layer) {if (Selected_layer==0) layer=1; if (Selected_layer==1) layer=-1;};
+	dlgStretch(1);
+    }
+
+	dlgHBoxLayout {
+	  dlgGroup("Mill") {
+	  dlgGridLayout {dlgCell(0, 0) dlgCheckBox("&Active", mill_on); dlgCell(0, 1) dlgCheckBox("Clear unused area", fill_on);}
+	  dlgGridLayout {
+						dlgCell(0, 0) dlgLabel("&Tool");
+						dlgCell(0, 1) dlgRealEdit(mill_tool, 0.1, 50);
+						dlgCell(1, 0) dlgLabel("&Depth");
+						dlgCell(1, 1) dlgRealEdit(mill_down, 0, 50);
+						dlgCell(2, 0) dlgLabel("&Z up");
+						dlgCell(2, 1) dlgRealEdit(mill_up, 0, 300);
+						dlgCell(3, 0) dlgLabel(" ");
+						dlgCell(4, 0) dlgLabel("&Speed");
+						dlgCell(4, 1) dlgRealEdit(mill_speed, 0, 500);
+		}}
+	
+	dlgVBoxLayout {
+	dlgGroup("Drill") {
+	  dlgCheckBox("&Active", drill_on);
+	  dlgGridLayout {
+						dlgCell(0, 0) dlgLabel("&Depth");
+						dlgCell(0, 1) dlgRealEdit(drill_down, 0, 50);					
+						dlgCell(1, 0) dlgLabel("&Z up");
+						dlgCell(1, 1) dlgRealEdit(drill_up, 0, 50);
+						dlgCell(2, 0) dlgLabel("&Speed");
+						dlgCell(2, 1) dlgRealEdit(drill_speed, 0, 500);
+						}}
+	 dlgGroup("Misc") {
+		dlgGridLayout {
+						dlgCell(0, 1) dlgLabel("&Tool up");
+						dlgCell(0, 2) dlgRealEdit(tool_up, 0, 50);
+						dlgCell(0, 3) dlgStretch(500);
+	}}}
+ 
+     dlgGroup("Cut") {
+		dlgCheckBox("&Active", cut_on);
+			dlgGridLayout {
+						dlgCell(0, 0) dlgLabel("&Tool");
+						dlgCell(0, 1) dlgRealEdit(cut_tool, 0.1, 50);
+						dlgCell(1, 0) dlgLabel("&Depth");
+						dlgCell(1, 1) dlgRealEdit(cut_depth, 0, 50);
+						dlgCell(2, 0) dlgLabel("&Steps");
+						dlgCell(2, 1) dlgComboBox(Steps, Sel_Cut) {cut_steps = Sel_Cut+1;}; 
+						dlgCell(3, 0) dlgLabel("&Gap [%]");
+						dlgCell(3, 1) dlgRealEdit(cut_gap, 0, 50);						
+						dlgCell(4, 0) dlgLabel("&Z up");
+						dlgCell(4, 1) dlgRealEdit(cut_up, 0, 50);
+						dlgCell(5, 0) dlgLabel("&Speed");
+						dlgCell(5, 1) dlgRealEdit(cut_speed, 0, 500);
+	}}}
+
+  dlgHBoxLayout {
+    dlgLabel("Output file:");
+    dlgStringEdit(fileName);
+    dlgPushButton("Bro&wse") {string fn = dlgFileSave("Save Output file", fileName);if (fn) fileName = fn;}
+    }
+	
+  dlgSpacing(10);
+  dlgHBoxLayout {
+  dlgLabel("Note: All dimension are in milimeters. Speed is [mm/min]");
+    dlgStretch(1);
+    dlgPushButton("+OK")    dlgAccept(1);
+    dlgPushButton("Cancel") { dlgReject(0); exit(1); }
+    }
+  } ;
+   
+  //save parameters in gcode.set file
+  if (Result==1)
+  {	fileerror();
+	output(path_ulp[0] + "/gcode.set", "wt")
+	   {printf("//List of usual parameters:\n");
+		write_int_param("mill_on", mill_on);
+		write_int_param("fill_on", fill_on);
+		write_real_param("mill_tool", mill_tool);			
+		write_real_param("mill_down", mill_down);
+		write_real_param("mill_up", mill_up);
+		write_real_param("mill_speed", mill_speed);
+		write_int_param("drill_on", drill_on);
+		write_real_param("drill_down", drill_down);
+		write_real_param("drill_up", drill_up);
+		write_real_param("drill_speed", drill_speed);
+		write_int_param("cut_on", cut_on);
+		write_real_param("cut_depth", cut_depth);
+		write_int_param("cut_steps", cut_steps);
+		write_real_param("cut_tool", cut_tool);
+		write_real_param("cut_up", cut_up);
+		write_real_param("cut_gap", cut_gap);
+		write_real_param("cut_speed", cut_speed);
+		write_real_param("tool_up", tool_up);		
+		write_int_param("layer", layer);
+		}
+	if (fileerror()) {dlgMessageBox("Save param. error"); exit(1);};
+  } }
+  
+//milling part require two run of the ulp    
+  if (mill_on==1 || fill_on==1)
+  {	if (step_ulp==1)
+		{DeviceInit();
+		GenerateOutlines();
+		}
+	if (step_ulp==2)
+		{
+		if (mill_on) {DeviceChangeBit(); WriteOutlines();}
+		if (fill_on) {DeviceChangeBit(); Fill();}
+		if (drill_on==1) {DeviceChangeBit(); DeviceDrill();}
+		if (cut_on==1) {DeviceChangeBit(); DeviceCut();}
+		DeviceEnd();
+		dlgMessageBox(";Succes!"); 	
+		exit(final_cmd);
+		}
+  }
+ 
+ //if no mill is necessary, ulp will run only once
+ if (mill_on==0)
+ {	DeviceInit();
+	if (drill_on==1) {DeviceChangeBit(); DeviceDrill();}
+	if (cut_on==1) {DeviceChangeBit(); DeviceCut();}
+	DeviceEnd();
+	dlgMessageBox(";Succes!"); 
+} 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

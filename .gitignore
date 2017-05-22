@@ -18,6 +18,13 @@ $RECYCLE.BIN/
 *.lnk
 
 # =========================
+*.db
+*.xlsx
+# Eagle temp files
+*.s#*
+*.b#*
+
+# =========================
 # Operating System Files
 # =========================
 

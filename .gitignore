@@ -55,5 +55,7 @@ Temporary Items
 
 /src/v.0.0.0/FreeMODBUS/Master/Control Center/Debug/*
 /src/v.0.0.0/FreeMODBUS/Master/Control Center/ipch/*
+/src/v.0.0.0/doc/*
 
 !/src/v.0.0.0/FreeMODBUS/Master/Control Center/Debug/com.exe
+!/src/v.0.0.0/doc/SNS_2009/*

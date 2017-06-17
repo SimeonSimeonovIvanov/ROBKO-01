@@ -55,6 +55,12 @@ Temporary Items
 
 /src/v.0.0.0/FreeMODBUS/Master/Control Center/Debug/*
 /src/v.0.0.0/FreeMODBUS/Master/Control Center/ipch/*
-/doc/*
+/doc/mcu-bg.com/*
+/doc/Multimedia/*
+/doc/Orlin/*
+/doc/Pictures/*
+/doc/Prodava se/*
+/doc/User Manual/*
+/doc/Robko01-master.zip/*
 
 !/src/v.0.0.0/FreeMODBUS/Master/Control Center/Debug/com.exe

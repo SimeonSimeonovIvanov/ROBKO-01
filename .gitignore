@@ -61,6 +61,11 @@ Temporary Items
 /doc/Pictures/*
 /doc/Prodava se/*
 /doc/User Manual/*
-/doc/Robko01-master.zip/*
+/doc/Robko01-master.zip
+/doc/SNS_2009/*
+/doc/ROBKO_2015/*
 
 !/src/v.0.0.0/FreeMODBUS/Master/Control Center/Debug/com.exe
+!/doc/SNS_2009/SNS_2009_ROBKO_Cv_De_Si_04_09_doc.pdf
+!/doc/SNS_2009/SNS_2009_ROBKO_Cv_De_Si_04_09_ppt.pdf
+!/doc/ROBKO_2015/ROBKO_04.04.2015_ppt.pdf

@@ -21,11 +21,11 @@ porttcp.o: ../FreeMODBUS/port/porttcp.c \
   ../FreeMODBUS/port/../../net/net.h \
   c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include/stdbool.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/pgmspace.h \
-  E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mb.h \
-  E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\port/port.h \
-  E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbport.h \
-  E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbproto.h \
-  E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbport.h
+  D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mb.h \
+  D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\port/port.h \
+  D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbport.h \
+  D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbproto.h \
+  D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbport.h
 
 c:/winavr-20100110/lib/gcc/../../avr/include/stdio.h:
 
@@ -73,12 +73,12 @@ c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include/stdbool.h:
 
 c:/winavr-20100110/lib/gcc/../../avr/include/avr/pgmspace.h:
 
-E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mb.h:
+D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mb.h:
 
-E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\port/port.h:
+D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\port/port.h:
 
-E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbport.h:
+D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbport.h:
 
-E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbproto.h:
+D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbproto.h:
 
-E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbport.h:
+D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\modbus\include/mbport.h:

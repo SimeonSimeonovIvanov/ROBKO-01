@@ -85,7 +85,7 @@ int mbTCPWriteMultipleRegisters
 int mbTCPMasterConnect(
 	LPMB lpMb,
 	char *szIP,
-	int port
+	char *port
 );
 
 int mbTCPMasterSend(
@@ -107,12 +107,9 @@ int mbTCPMsterRead(
 
 int socketTryConnect
 (
-	HWND hwnd,
 	SOCKET *s,
 	long hostname,
 	int PortNo
 );
-
-//int socketListenOnPort(HWND hwnd, SOCKET *s, int PortNo);
 
 #endif

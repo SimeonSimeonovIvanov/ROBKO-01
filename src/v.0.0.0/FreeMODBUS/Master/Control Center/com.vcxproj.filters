@@ -13,6 +13,9 @@
       <UniqueIdentifier>{bbdaa3da-b9d7-4c4f-953c-3a29c63b72f4}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
+    <Filter Include="modbus">
+      <UniqueIdentifier>{6270517e-dd86-42ce-8e0a-7e0b5ced000a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="com.cpp">
@@ -24,20 +27,20 @@
     <ClCompile Include="llist.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="modbus\modbus-rtu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="modbus\modbus-tcp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="modbus\modbus.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ROBKO_01.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StdAfx.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="modbus\modbus.cpp">
+      <Filter>modbus</Filter>
+    </ClCompile>
+    <ClCompile Include="modbus\modbus-rtu.cpp">
+      <Filter>modbus</Filter>
+    </ClCompile>
+    <ClCompile Include="modbus\modbus-tcp.cpp">
+      <Filter>modbus</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

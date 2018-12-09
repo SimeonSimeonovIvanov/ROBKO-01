@@ -271,6 +271,8 @@ int main(void)
 		flagAllMotorNotMove = !flagAllMotorNotMove;
 		uiRegInputBuf[12] = uiRegHolding[6];
 
+		//if( flagAllMotorNotMove ) OCR3A = 15000;
+
 		/* handle network link changes */
 		if( !net_link_up && hal_link_up() ) {
 			dhcp_client_start(dhcp_client_event_callback);
@@ -923,7 +925,7 @@ ISR( TIMER3_COMPA_vect )
 
 	TCNT3 = 0;
 	if( OCR3A > 8000 ) {
-		OCR3A -= 100;
+		//OCR3A -= 100;
 	}
 
 	if( uiModbusTimeOutCounter ) {

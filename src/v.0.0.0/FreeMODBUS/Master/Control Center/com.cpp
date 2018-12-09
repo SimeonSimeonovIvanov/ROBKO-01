@@ -528,7 +528,7 @@ DWORD WINAPI comThreadFunc(LPVOID lpParam)
 			}
 
 			if( fReconect || IDM_CONNECTION_TCP_IP == lpMainData->fButton  ) {
-				if( mbTCPMasterConnect( &lpMainData->mbMaster, lpMainData->mbMaster.szIP, atoi(lpMainData->mbMaster.szTcpPort)) ) {
+				if( mbTCPMasterConnect( &lpMainData->mbMaster, lpMainData->mbMaster.szIP, (char*)lpMainData->mbMaster.szTcpPort) ) {
 					Sleep(1);
 					continue;
 				} else {
@@ -587,10 +587,12 @@ DWORD WINAPI comThreadFunc(LPVOID lpParam)
 				}
 
 				if( 0x8000 & arr_new[6 + i] ) {
-					arr_new[6 + i] = ( 0x7FFF & arr_new[6 + i] ) - 32768;
+					//arr_new[6 + i] = ((0x7FFF & arr_new[6 + i]) - 32765 );
+					//arr_new[6 + i] |= 80000000;
+
 				}
 
-				arrMotorPos[i] = (int)arr_new[6 + i];
+				arrMotorPos[i] = mbU16toSI(arr_new[6 + i]);
 
 				sprintf( szBuffer, "%d", arrMotorPos[ i ] );
 				Edit_SetText( GetDlgItem( lpMainData->hwnd, IDC_BUTTON_RUN_MOTOR1 + i ), szBuffer );

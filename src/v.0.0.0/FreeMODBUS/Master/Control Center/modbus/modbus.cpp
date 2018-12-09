@@ -98,7 +98,7 @@ int mbWriteSingleCoil
 	unsigned char coilIsOn
 )
 {
-	char txBuffer[] = { deviceID, 5, coilAddress>>8, coilAddress, 0, 0 };
+	char txBuffer[] = { (char)deviceID, 5, coilAddress>>8, coilAddress, 0, 0 };
 	unsigned int uiResult = 0;
 
 	if(coilIsOn) txBuffer[4] = (char)0xff;
@@ -141,7 +141,7 @@ int mbWriteMultipleCoils
 ) // ???
 {
 	char txBuffer[] = {
-		deviceID, 15,
+		(char)deviceID, 15,
 		coilAddress>>8, coilAddress,
 		numberOfCoil>>8, numberOfCoil,
 		( numberOfCoil + 7 ) / 8
@@ -194,7 +194,7 @@ int mbReadInputRegister
 	unsigned int *regValue
 )
 {
-	char txBuffer[] = { deviceID, 4, regAddress>>8, regAddress, wordCount>>8, wordCount };
+	char txBuffer[] = { (char)deviceID, 4, regAddress>>8, regAddress, wordCount>>8, wordCount };
 	unsigned int uiResult = 0;
 
 	lpMb->txBufferLenght = sizeof(txBuffer);
@@ -233,7 +233,7 @@ int mbReadHoldingRegisters
 	unsigned int *regValue
 )
 {
-	char txBuffer[] = { deviceID, 3, regAddress>>8, regAddress, wordCount>>8, wordCount };
+	char txBuffer[] = { (char)deviceID, 3, regAddress>>8, regAddress, wordCount>>8, wordCount };
 	unsigned int uiResult = 0;
 
 	lpMb->txBufferLenght = sizeof(txBuffer);
@@ -272,7 +272,7 @@ int mbWriteSingleRegister
 	unsigned int regValue
 )
 {
-	char txBuffer[] = { deviceID, 6, regAddress>>8, regAddress, regValue>>8, regValue };
+	char txBuffer[] = { (char)deviceID, 6, regAddress>>8, regAddress, regValue>>8, regValue };
 	unsigned int uiResult = 0;
 
 	lpMb->txBufferLenght = sizeof(txBuffer);
@@ -427,5 +427,51 @@ int mbMasterSendAscii
 )
 {
 	return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+unsigned int mbSItoU32( int iValue )
+{
+	unsigned int uiValue = iValue;
+
+	if( 0 > iValue ) {
+		uiValue &= 0x7FFFFFFF;
+		uiValue |= 0x80000000;
+	}
+
+	return uiValue;
+}
+
+int mbU32toSI( unsigned int uiValue )
+{
+	int iValue = uiValue;
+
+	if( 0x80000000 & iValue ) {
+		iValue = ( 0x7FFFFFFF & iValue ) - 0x80000000;
+	}
+
+	return iValue;
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+unsigned int mbSItoU16( int iValue )
+{
+	unsigned int uiValue = iValue;
+
+	if( 0 > iValue ) {
+		uiValue &= 0x7FFF;
+		uiValue |= 0x8000;
+	}
+
+	return uiValue;
+}
+
+int mbU16toSI( unsigned int uiValue )
+{
+	int iValue = uiValue;
+
+	if( 0x8000 & iValue ) {
+		iValue = ( 0x7FFF & iValue ) - 32768;
+	}
+
+	return iValue;
 }
 /////////////////////////////////////////////////////////////////////////////////////////

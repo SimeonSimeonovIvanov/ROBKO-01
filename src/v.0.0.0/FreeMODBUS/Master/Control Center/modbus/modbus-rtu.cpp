@@ -33,7 +33,7 @@ int mdRTUReadDiscreteInputsOrCoils
 		return 1;
 	}
 
-	for( i = start; i < end - start; i++ ) {
+	for( i = start; i <= end - start; i++ ) {
 		io[i] = 1 & ( lpMb->rxBuffer[3 + i/8]>>(i - (8 * ( i / 8 ))) );
 	}
 
@@ -75,7 +75,7 @@ int mbRTUReadInputOrHoldingRegister
 	unsigned int *regValue
 )
 {
-	unsigned int i, j = 3, uiResult;
+	unsigned int i, j = 2, uiResult;
 
 	uiResult = mbRTUMasterReadResponse( lpMb, deviceID );
 
@@ -88,8 +88,8 @@ int mbRTUReadInputOrHoldingRegister
 	}
 
 	for( i = 0; i < wordCount; i++ ) {
-		regValue[i] = lpMb->rxBuffer[j]<<8 | lpMb->rxBuffer[++j];
-		++j;
+		regValue[i]  = lpMb->rxBuffer[++j]<<8;
+		regValue[i] |= lpMb->rxBuffer[++j];
 	}
 
 	return 0;
@@ -228,9 +228,9 @@ int mbRTUMasterSend( LPMB lpMb )
 		return 1;
 	}
 
-	while( flag ) {
+	//while( flag ) {
 		//Sleep(1);
-	}
+	//}
 
 	flag = 1;
 
@@ -308,7 +308,7 @@ int mbRTUMasterConnect
 	}
 
 	cto.ReadIntervalTimeout = 5;
-	cto.ReadTotalTimeoutConstant = 10;
+	cto.ReadTotalTimeoutConstant = 5;
 	cto.ReadTotalTimeoutMultiplier = 1;
 	cto.WriteTotalTimeoutConstant = 0;
 	cto.WriteTotalTimeoutMultiplier = 0;
@@ -324,65 +324,6 @@ int mbRTUMasterConnect
 /////////////////////////////////////////////////////////////////////////////////////
 void serialInitDefDCB(DCB *dcb)
 {
-	dcb->BaudRate = CBR_115200; //CBR_57600 //CBR_57600 // CBR_115200
-	dcb->ByteSize = 8;
-	dcb->StopBits = TWOSTOPBITS;
-	dcb->fParity = 1;
-	dcb->Parity = EVENPARITY;
-
-	dcb->fOutxCtsFlow = TRUE;
-
-	dcb->DCBlength = sizeof(DCB);
-	/* we don't use XON/XOFF flow control. */
-	dcb->fInX = dcb->fOutX = FALSE;
-	/* we don't need hardware handshake. */
-	dcb->fOutxCtsFlow = dcb->fOutxDsrFlow = FALSE;
-	dcb->fRtsControl = RTS_CONTROL_TOGGLE;
-	dcb->fDtrControl = DTR_CONTROL_DISABLE;
-	dcb->fDsrSensitivity= FALSE;
-	/* misc parameters */
-	dcb->fErrorChar = FALSE;
-	dcb->fBinary = TRUE;
-	dcb->fNull = FALSE;
-	dcb->fAbortOnError = FALSE;
-//	dcb->wReserved = 0;
-	dcb->XonLim = 2;
-	dcb->XoffLim = 4;
-	dcb->XonChar = 0x13;
-	dcb->XoffChar = 0x19;
-
-	return;
-
-	//memset( dcb, 0, sizeof( DCB ) );
-	dcb->BaudRate = CBR_115200; //CBR_57600 //CBR_57600 // CBR_115200
-	dcb->ByteSize = 8;
-	dcb->StopBits = TWOSTOPBITS;
-	//dcb->fParity = 1;
-	dcb->Parity = EVENPARITY;
-
-	//dcb->fOutxCtsFlow = TRUE;
-
-	dcb->DCBlength = sizeof(DCB);
-	/* we don't use XON/XOFF flow control. */
-	dcb->fInX = dcb->fOutX = FALSE;
-	/* we don't need hardware handshake. */
-	dcb->fOutxCtsFlow = dcb->fOutxDsrFlow = FALSE;
-	dcb->fRtsControl = RTS_CONTROL_TOGGLE;
-	dcb->fDtrControl = DTR_CONTROL_ENABLE;
-	dcb->fDsrSensitivity= FALSE;
-	/* misc parameters */
-	dcb->fErrorChar = FALSE;
-	dcb->fBinary = TRUE;
-	dcb->fNull = FALSE;
-	dcb->fAbortOnError = FALSE;
-//	dcb->wReserved = 0;
-	dcb->XonLim = 2048;
-	dcb->XoffLim = 512;
-	dcb->XonChar = 19;
-	dcb->XoffChar = 25;
-
-	return;
-
 	//memset( dcb, 0, sizeof( DCB ) );
 
 	dcb->DCBlength = sizeof( DCB );

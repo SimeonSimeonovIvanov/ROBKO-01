@@ -1,5 +1,5 @@
 mbcrc.o: ../FreeMODBUS/modbus/rtu/mbcrc.c \
-  E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\port/port.h \
+  D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\port/port.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/io.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/sfr_defs.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/inttypes.h \
@@ -14,7 +14,7 @@ mbcrc.o: ../FreeMODBUS/modbus/rtu/mbcrc.c \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/pgmspace.h \
   c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include/stddef.h
 
-E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\port/port.h:
+D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\FreeMODBUS\port/port.h:
 
 c:/winavr-20100110/lib/gcc/../../avr/include/avr/io.h:
 

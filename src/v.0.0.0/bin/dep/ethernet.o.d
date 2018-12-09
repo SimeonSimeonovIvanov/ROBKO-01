@@ -5,7 +5,7 @@ ethernet.o: ../net/ethernet.c \
   c:\winavr-20100110\bin\../lib/gcc/avr/4.3.3/include/stdbool.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/stdint.h ../net/ethernet.h \
   ../net/ethernet_config.h ../net/net.h ../net/hal.h \
-  E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\net\enc424j600/enc424j600.h \
+  D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\net\enc424j600/enc424j600.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/io.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/sfr_defs.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/inttypes.h \
@@ -34,7 +34,7 @@ c:/winavr-20100110/lib/gcc/../../avr/include/stdint.h:
 
 ../net/hal.h:
 
-E:\Developments\Robotics\ROBKO\ 01\src\v.0.0.0\net\enc424j600/enc424j600.h:
+D:\Developments\Robotics\Robotic\ Arm\ROBKO\ 01\src\v.0.0.0\net\enc424j600/enc424j600.h:
 
 c:/winavr-20100110/lib/gcc/../../avr/include/avr/io.h:
 

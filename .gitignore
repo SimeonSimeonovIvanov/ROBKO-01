@@ -56,7 +56,7 @@ Temporary Items
 /src/v.0.0.0/FreeMODBUS/Master/Control Center/Debug/*
 /src/v.0.0.0/FreeMODBUS/Master/Control Center/ipch/*
 /doc/mcu-bg.com/*
-/doc/Multimedia/*
+
 /doc/Orlin/*
 /doc/Pictures/*
 /doc/Prodava se/*
@@ -69,6 +69,7 @@ Temporary Items
 /doc/ROBKO_2015/doc/*
 /doc/Robko01-master.zip
 /doc/Multimedia/Pictures/04.11.2013/Small/*
+/doc/Multimedia/Pictures/*
 
 !/src/v.0.0.0/FreeMODBUS/Master/Control Center/Debug/com.exe
 !/doc/SNS_2009/SNS_2009_ROBKO_Cv_De_Si_04_09_doc.pdf
